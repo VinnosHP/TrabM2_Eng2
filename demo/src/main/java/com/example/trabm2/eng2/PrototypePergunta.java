@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public abstract class PrototypePergunta {
+    protected String id;
     protected String pergunta;
     protected ArrayList<Resposta> listaRespostas;
     protected Calendar data;
@@ -14,6 +15,7 @@ public abstract class PrototypePergunta {
         this.listaRespostas = null;
         this.data = null;
         this.usuario = null;
+        this.id = null;
     }
 
     protected PrototypePergunta(PrototypePergunta prototypePergunta){
@@ -22,6 +24,7 @@ public abstract class PrototypePergunta {
             this.listaRespostas = prototypePergunta.listaRespostas;
             this.data = prototypePergunta.data;
             this.usuario = prototypePergunta.usuario;
+            this.id = prototypePergunta.id;
         }
     }
 
@@ -55,6 +58,14 @@ public abstract class PrototypePergunta {
 
     protected void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    protected String id(){
+        return id;
+    }
+
+    protected void setId(String id){
+        this.id = id;
     }
 
     protected abstract PrototypePergunta clone();
