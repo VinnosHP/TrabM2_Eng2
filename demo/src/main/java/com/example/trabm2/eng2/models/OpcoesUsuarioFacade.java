@@ -1,4 +1,4 @@
-package com.example.trabm2.eng2;
+package com.example.trabm2.eng2.models;
 
 public class OpcoesUsuarioFacade {
     public void fazLogin(Usuario usuario){
@@ -11,7 +11,7 @@ public class OpcoesUsuarioFacade {
     }
     public void fazPergunta(Usuario usuario){
         Pergunta pergunta = new Pergunta();
-        pergunta.setUsuario(usuario);
+        pergunta.usuario = usuario;
         String texto = "";
         boolean fezPergunta = pergunta.fazPergunta(texto, usuario);
     }

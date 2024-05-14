@@ -4,6 +4,12 @@ import java.util.Calendar;
 import java.util.Objects;
 import java.util.Scanner;
 
+import com.example.trabm2.eng2.models.Usuario;
+import com.example.trabm2.eng2.models.Pergunta;
+import com.example.trabm2.eng2.models.Login;
+import com.example.trabm2.eng2.models.Cadastro;
+import com.example.trabm2.eng2.models.Resposta;
+
 public class App 
 {
     public static void menuLogin(){
@@ -99,9 +105,9 @@ public class App
             if (Objects.equals(perg, "")) System.out.println("Pergunta Invalida!");
         }while (Objects.equals(perg, ""));
 
-        pergunta.setUsuario(usuario);
-        pergunta.setPergunta(perg);
-        pergunta.setData(Calendar.getInstance());
+        pergunta.usuario = usuario;
+        pergunta.pergunta = perg;
+        pergunta.data = Calendar.getInstance();
 
         System.out.println("Pergunta Realizada!");
         in.close();

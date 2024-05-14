@@ -1,4 +1,4 @@
-package com.example.trabm2.eng2;
+package com.example.trabm2.eng2.models;
 
 public class Cadastro {
     private Usuario usuario;
