@@ -1,30 +1,34 @@
 package com.example.trabm2.eng2.models;
 
+import java.util.Calendar;
+
 public class OpcoesUsuarioFacade {
     public void fazLogin(Usuario usuario){
         Login login = new Login(usuario);
-        boolean fezLogin = login.fazLogin();
+        if (login.fazLogin()) {
+            System.out.println("Login feito com sucesso!");
+        }else System.out.println("Login Fracassado!");
     }
     public void fazCadastro(Usuario usuario){
         Cadastro cadastro = new Cadastro(usuario);
-        boolean novoCadastro = cadastro.fazCadastro();
+        if (cadastro.fazCadastro()) {
+            System.out.println("Cadastro feito com sucesso!");
+        }else System.out.println("Cadastro fracassado!");
     }
-    public void fazPergunta(Usuario usuario){
+    public void fazPergunta(Usuario usuario, String perg){
         Pergunta pergunta = new Pergunta();
         pergunta.usuario = usuario;
-        String texto = "";
-        boolean fezPergunta = pergunta.fazPergunta(texto, usuario);
+        if (pergunta.fazPergunta(perg, usuario)) {
+            System.out.println("Pergunta realizada!");
+        }else System.out.println("Erro ao fazer a pergunta!");
     }
-    public void respondePergunta(Usuario usuario){
+    public void respondePergunta(Usuario usuario, String resp, Pergunta pergunta){
         Resposta resposta = new Resposta();
-        resposta.setUsuario(usuario);
-        String texto = "";
-        boolean respondeuPergunta = resposta.respondePergunta();
+        if (resposta.respondePergunta(usuario, pergunta, Calendar.getInstance(), resp)) {
+            System.out.println("Pergunta respondida com sucesso!");
+        }else System.out.println("Erro ao responder a pergunta!");
     }
     public void respondeResposta(Usuario usuario){
-        Resposta resposta = new Resposta();
-        resposta.setUsuario(usuario);
-        String texto = "";
-        boolean respondeuResposta = resposta.respondeResposta();
+        System.out.println("Precisa ser conversado sobre essa funcao");
     }
 }

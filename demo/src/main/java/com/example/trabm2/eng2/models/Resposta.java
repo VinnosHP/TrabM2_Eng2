@@ -66,7 +66,16 @@ public class Resposta {
         this.data = data;
     }
 
-    public boolean respondePergunta(){
+    public boolean respondePergunta(Usuario usuario, Pergunta pergunta, Calendar data, String resposta){
+        try {
+            setUsuario(usuario);
+            setPergunta(pergunta);
+            setData(data);
+            setResposta(resposta);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Erro ao responder pergunta: " + e.getMessage());
+        }
         return false;
     }
 

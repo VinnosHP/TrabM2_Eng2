@@ -6,12 +6,10 @@ import java.util.Scanner;
 
 import com.example.trabm2.eng2.models.Usuario;
 import com.example.trabm2.eng2.models.Pergunta;
-import com.example.trabm2.eng2.models.Login;
-import com.example.trabm2.eng2.models.Cadastro;
+import com.example.trabm2.eng2.models.OpcoesUsuarioFacade;
 import com.example.trabm2.eng2.models.Resposta;
 
-public class App 
-{
+public class App {
     public static void menuLogin(){
         System.out.print("----- MENU -----\n" +
                          " 1 - Login\n" +
@@ -31,7 +29,7 @@ public class App
     }
 
     public static void login(Usuario usuario){
-        Login login = new Login();
+        OpcoesUsuarioFacade opFacade = null;
         Scanner in = new Scanner(System.in);
         String senha;
         String email;
@@ -48,18 +46,13 @@ public class App
                 System.out.println("Senha Invalida!");
         }while (Objects.equals(senha, ""));
 
-        login.setUsuario(usuario);
-
-        if (login.fazLogin()) System.out.println("Login feito com sucesso!");
-        else System.out.println("Login Fracassado!");
-
+        opFacade.fazLogin(usuario);
         in.close();
     }
 
-    public static void cadastro(){
+    public static void cadastro(Usuario usuario){
+        OpcoesUsuarioFacade opFacade = null;
         Scanner in = new Scanner(System.in);
-        Usuario usuario = new Usuario();
-        Cadastro cadastro = new Cadastro();
         String nome, senha, email;
 
         do {
@@ -84,18 +77,14 @@ public class App
         usuario.setNome(nome);
         usuario.setSenha(senha);
         usuario.setEmail(email);
-
-        cadastro.setUsuario(usuario);
-
-        if (cadastro.fazCadastro())
-            System.out.println("Cadastro feito com sucesso!");
-        else System.out.println("Cadastro fracassado!");
+        opFacade.fazCadastro(usuario);
 
         in.close();
     }
 
     public static void fazerPergunta(Usuario usuario){
         System.out.println("\n----- Criar Pergunta -----");
+        OpcoesUsuarioFacade opFacade = null;
         Pergunta pergunta = new Pergunta();
         Scanner in = new Scanner(System.in);
         String perg;
@@ -105,11 +94,7 @@ public class App
             if (Objects.equals(perg, "")) System.out.println("Pergunta Invalida!");
         }while (Objects.equals(perg, ""));
 
-        pergunta.usuario = usuario;
-        pergunta.pergunta = perg;
-        pergunta.data = Calendar.getInstance();
-
-        System.out.println("Pergunta Realizada!");
+        opFacade.fazPergunta(usuario, perg);
         in.close();
     }
 
@@ -174,7 +159,7 @@ public class App
                     }while (opP != 0);
                     break;
                 case 2:
-                    cadastro();
+                    cadastro(usuario);
                     break;
                 default:
                     System.out.println("Opcao Invalida!");
