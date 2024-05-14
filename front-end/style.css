@@ -1,0 +1,19 @@
+body{
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction:  column;
+    
+    color: #023047
+}
+
+form{
+    padding: 50px;
+    background-color: black;;
+}
+
+div{
+
+}
