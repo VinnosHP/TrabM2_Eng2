@@ -175,5 +175,7 @@ public class App
                     break;
             }
         }while(opL != 0);
+        inputL.close();
+        inputP.close();
     }
 }
