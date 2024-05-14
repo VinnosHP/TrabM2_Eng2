@@ -1,4 +1,4 @@
-package com.example.trabm2.eng2;
+package com.example.trabm2.eng2.db_mysql;
 
 import java.sql.*;
 
