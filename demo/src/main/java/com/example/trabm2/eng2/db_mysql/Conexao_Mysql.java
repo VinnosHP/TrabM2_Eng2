@@ -25,12 +25,12 @@ public class Conexao_Mysql {
         dbConnection.close();
     }
 
-    public int executaQuery(String sql){
+    public boolean executaQuery(String sql){
         try {
-            return sqlManager.executeUpdate(sql);
+            return sqlManager.execute(sql);
         } catch (Exception e) {
             System.out.println("Error on connect: " + e.getMessage());
         }
-        return -1;
+        return false;
     }
 }

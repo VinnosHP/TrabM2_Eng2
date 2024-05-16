@@ -5,13 +5,13 @@ import java.util.Calendar;
 public class OpcoesUsuarioFacade {
     public void fazLogin(Usuario usuario){
         Login login = new Login(usuario);
-        if (login.fazLogin()) {
+        if (login.fazLogin(usuario)) {
             System.out.println("Login feito com sucesso!");
         }else System.out.println("Login Fracassado!");
     }
-    public void fazCadastro(Usuario usuario){
-        Cadastro cadastro = new Cadastro(usuario);
-        if (cadastro.fazCadastro()) {
+    public void fazCadastro(String nome, String email, String senha){
+        Cadastro cadastro = new Cadastro();
+        if (cadastro.fazCadastro(nome, email, senha)) {
             System.out.println("Cadastro feito com sucesso!");
         }else System.out.println("Cadastro fracassado!");
     }

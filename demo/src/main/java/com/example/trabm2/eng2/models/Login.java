@@ -1,5 +1,7 @@
 package com.example.trabm2.eng2.models;
 
+import com.example.trabm2.eng2.db_mysql.Conexao_Mysql;
+
 public class Login {
     private Usuario usuario;
 
@@ -18,11 +20,15 @@ public class Login {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    public boolean verificaDados(){
-        return false;
+    public boolean verificaDados(Usuario usuario){
+        Conexao_Mysql con = new Conexao_Mysql();
+        con.openDatabase();
+        String sqlQuery = "select email, senha from usuarios where email='" + usuario.getEmail() + "' and senha='"+usuario.getSenha()+"';";
+        if(con.executaQuery(sqlQuery)) return true;
+        else return false;
     }
 
-    public boolean fazLogin(){
-        return verificaDados();
+    public boolean fazLogin(Usuario usuario){
+        return verificaDados(usuario);
     }
 }

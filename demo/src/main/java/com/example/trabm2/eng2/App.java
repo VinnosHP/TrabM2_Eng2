@@ -77,7 +77,7 @@ public class App {
         usuario.setNome(nome);
         usuario.setSenha(senha);
         usuario.setEmail(email);
-        opFacade.fazCadastro(usuario);
+        opFacade.fazCadastro(nome, email, senha);
 
         in.close();
     }
