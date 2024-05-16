@@ -1,6 +1,9 @@
 package db_mysql;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Conexao_Mysql {
     public static String URL = "jdbc:mysql://localhost:3306/trabm2_eng2";
