@@ -8,8 +8,8 @@
     <servlet-name>s1</servlet-name>
     <servlet-class>DemoServlet</servlet-class>
   </servlet>
-  <servet-mapping>
+  <servlet-mapping>
     <servlet-name>s1</servlet-name>
     <url-pattern>/display</url-pattern>
-  </servet-mapping>
+  </servlet-mapping>
 </web-app>
