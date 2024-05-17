@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Criar Pergunta</title>
+        <script>
+            function redireciona(link){
+                /*função pra redirecionar para outra pagina, tem q ver os links certinhos*/
+            }
+
+            function verificaSubmit(){
+                if(document.getElementById("textAreaFormulario").value == ''){ 
+                    window.alert("falha! texto vazio"); // Quando tiver bonito com o css ja, eu faço uma mensagem que apareça no corpo da pag 
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div_principal">
+            <div class="topnav" id="topNav">
+                <button id="buttonVaiProPerfil" onclick="redireciona('')">Perfil</button>
+                <b id="nomeLogo">Nome/Logo</b>
+                <button id="buttonConfiguracoes" onclick="redireciona('')">Config</button>
+            </div>
+            <form id="formEnviaPergunta" method="get" onsubmit="return verificaSubmit()"> <!-- Quando tiver o backend tem q por pra onde q o submit vai levar aqui-->
+                <b>Criar pergunta</b><button type="submit" id="buttonEnviaPergunta" >Enviar</button><br/>
+                <textarea id="textAreaFormulario" rows="5" cols="50" placeholder="Escreva sua pergunta aqui..."></textarea>
+            </form>
+        </div>
+    </body>
+</html>
