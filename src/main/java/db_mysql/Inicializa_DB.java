@@ -42,15 +42,15 @@ class Inicializa_DB {
         try {
             String sqlQuery = "select * from testUser;";
             con.openDatabase();
-            con.executaQuery(sqlQuery);
+            con.showDataQuery(sqlQuery);;
             con.closeDatabase();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         Conexao_Mysql conexao_Mysql = new Conexao_Mysql();
-        
+        selectTable(conexao_Mysql);
     }
 }
