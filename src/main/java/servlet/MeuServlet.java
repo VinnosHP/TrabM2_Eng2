@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 public class MeuServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-    req.getRequestDispatcher("html/tela_principal.html").forward(req, resp);
+    if (req.getParameter("username") == "ademiro") {
+      req.getRequestDispatcher("html/tela_principal.html").forward(req, resp);
+    }else req.getRequestDispatcher("index.html").forward(req, resp);
+  }
+  
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+
   }
 }
