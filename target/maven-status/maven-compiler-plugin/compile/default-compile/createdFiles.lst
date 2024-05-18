@@ -1,1 +1,6 @@
-DemoServlet.class
+models\Answer.class
+models\Question.class
+db_mysql\MysqlConnection.class
+app\configs\AppConfigs.class
+models\User.class
+servlet\MeuServlet.class
