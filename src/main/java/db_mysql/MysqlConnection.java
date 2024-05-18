@@ -32,7 +32,7 @@ public class MysqlConnection {
 
             sqlManager = dbConnection.createStatement();
         } catch (SQLException e) {
-            System.out.println("Error on connect: " + e.getMessage());
+            System.out.println("Error on connect: " + e.getMessage()); // mudar mensagem de erro aqui
         }
     }
 
