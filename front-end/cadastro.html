@@ -1,29 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="cadastro.css" />
   </head>
   <body>
-    <div class="page">
-      <form method="post" class="formCadrastro">
-        <h1>Cadastro</h1>
-        <div id="divNome">
-          <input type="Dados" placeholder="Nome e Sobrenome" autofocus="true" />
-        </div>
-        <div id="divEmail">
-            <input type="email" placeholder="Informe o email"/>
-        </div>
-        <div id="divSenha">
-        <input type="password" placeholder="Informe a sua senha"/>
-        </div>
-        <div id="divCadastrar">
-        <a href="/">Cadastrar</a>
-        </div>
-        </div>
-      </form>
-    </div>
+    <section id="page">
+      <div>
+        <form method="post" class="formCadastro">
+          <h3 style="color: aliceblue">Cadastro</h3>
+          <div>
+            <input
+              type="Nome/Sobrenome"
+              placeholder="Nome e Sobrenome"
+              autofocus="true"
+            />
+          </div>
+          <div>
+            <input
+              type="Email"
+              placeholder="Insira o seu email"
+              autofocus="true"
+            />
+          </div>
+          <div>
+            <input
+              type="Senha"
+              placeholder="Insira sua senha"
+              autofocus="true"
+            />
+          </div>
+          <a style="color: white" href="/">Cadastrar</a>
+        </form>
+      </div>
+      <div>
+        <img src="VAV.png" />
+      </div>
+    </section>
   </body>
 </html>
