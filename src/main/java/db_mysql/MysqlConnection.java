@@ -49,9 +49,4 @@ public class MysqlConnection {
             System.out.println("Error on close: " + e.getMessage());
         }
     }
-
-    public void testarConexao() {
-        connectDatabase();
-        disconnectDatabase();
-    }
 }
