@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Perfil</title>
+        <script>
+            function mostraTabela(tabelaId){
+                document.getElementById(tabelaId).style.display = "block";
+                const outrasTabelas = Array.from(document.getElementsByClassName("tabela"));
+                for(let i=0;i<outrasTabelas.length;i++){
+                    if(outrasTabelas[i].getAttribute("id")!=document.getElementById(tabelaId).getAttribute("id")) escondeTabela(outrasTabelas[i].getAttribute("id"));
+                }
+            }
+            function escondeTabela(tabelaId){
+                document.getElementById(tabelaId).style.display = "none";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="page" id="div_principal">
+            <div class="topnav" id="topNav">
+                <input type="text" id="pesquisaPergunta" placeholder="Pesquisar pergunta">
+                <b id="nomeLogo">Nome/Logo</b>
+                <button id="buttonCriaPergunta">Criar pergunta</button>
+                <button id="buttonConfiguracoes">Config</button>
+            </div>
+            <div class="blocoPerfil" id="div_BlocoPerfil">
+                <img id="img_Perfil">
+                <p id="nomeUsuario">Kassandra Pereira</p>
+                <button id="buttonRespostas" onclick="mostraTabela('divTabelaRespostas')">Respostas</button>
+                <button id="buttonPerguntas" onclick="mostraTabela('divTabelaPerguntas')">Perguntas</button>
+                <div id="divEmailUsuario">
+                    <p id="emailUsuario">pipipipopopo@gmail.com</p>
+                </div>
+            </div>
+            <div class="tabela" id="divTabelaPerguntas" hidden>
+                <p>Perguntas</p>
+                <table>
+                    <tbody>
+                        <tr>pergunta 1</tr><br/>
+                        <tr>pergunta 2</tr>
+                    </tbody>
+                </table>
+                <button id="buttonFechaPerguntas" onclick="escondeTabela('divTabelaPerguntas')">Fechar</button>
+            </div>
+            <div class='tabela' id="divTabelaRespostas" hidden>
+                <p>Respostas</p>
+                <table>
+                    <tbody>
+                        <tr>resposta 1</tr><br/>
+                        <tr>resposta 2</tr>
+                    </tbody>
+                </table>
+                <button id="buttonFechaRespostas" onclick="escondeTabela('divTabelaRespostas')">Fechar</button>
+            </div>
+        </div>
+    </body>
+</html>
