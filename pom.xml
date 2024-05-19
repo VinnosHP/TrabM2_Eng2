@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://www.maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example.trabm2_eng2</groupId>
@@ -10,7 +9,6 @@
   <packaging>war</packaging>
 
   <name>demo Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
@@ -19,19 +17,12 @@
   </properties>
   
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <!-- javax.servlet -->
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
         <version>4.0.1</version>
         <scope>provided</scope>
-    </dependency>
-
-     <!-- MySQL Connector -->
-    <dependency>
-        <groupId>com.mysql</groupId>
-        <artifactId>mysql-connector-j</artifactId>
-        <version>8.4.0</version>
     </dependency>
 
     <!-- JUnit -->
@@ -42,7 +33,7 @@
       <scope>test</scope>
     </dependency>
 
-      <!-- Spring Core e Context -->
+    <!-- Spring Core e Context -->
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-core</artifactId>
@@ -90,104 +81,162 @@
         <version>5.6.0</version>
     </dependency>
 
-<!-- LOMBOK -->
-  <dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.22</version> <!-- Versão mais recente do Lombok -->
-    <scope>provided</scope>
-</dependency>
+    <!-- Lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
+    </dependency>
 
-    
- <!-- DOTENV -->
+    <!-- Dotenv -->
     <dependency>
       <groupId>io.github.cdimascio</groupId>
       <artifactId>java-dotenv</artifactId>
       <version>5.2.1</version>
     </dependency>
-   
 
+    <!-- Jackson -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.14.0</version>
+    </dependency>
+
+    <!-- jOOQ -->
+    <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jooq</artifactId>
+      <version>3.16.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jooq-meta</artifactId>
+      <version>3.16.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jooq-codegen</artifactId>
+      <version>3.16.4</version>
+    </dependency>
+    <!-- MySQL Connector -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.29</version>
+    </dependency>
   </dependencies>
 
   <build>
     <finalName>demo</finalName>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-        <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
-            </plugin>
-            <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.2.2</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
-            </plugin>
-            
-            <!-- Adicionando o plugin Flyway Maven -->
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>6.4.0</version>
-                <!-- Must be in the same phase as Jooq -->
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>migrate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <initSql>SET default_storage_engine=InnoDB;</initSql>
-                    <outOfOrder>true</outOfOrder>
-                    <driver>com.mysql.cj.jdbc.Driver</driver>
-                    <table>schema_version</table>
-                     <url>jdbc:mysql://localhost:3306/trabm2_eng2</url>
-                    <user>root</user>
-                    <password>senha</password>
-                    <schemas>
-                        <schema>trabm2_eng2</schema>
-                    </schemas>
-                    <cleanDisabled>true</cleanDisabled>
-                    <locations>
-                        <location>filesystem:src/main/resources/db/migration</location>
-                    </locations>
-                </configuration>
-            </plugin>
-            <plugin>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-maven-plugin</artifactId>
-            <version>1.18.22.0</version> <!-- Versão mais recente do Lombok Plugin -->
-            <executions>
-                <execution>
-                    <phase>generate-sources</phase>
-                    <goals>
-                        <goal>delombok</goal>
-                    </goals>
-                </execution>
-            </executions>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
         </plugin>
-        </plugins>
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+
+        <!-- Flyway Maven Plugin -->
+        <plugin>
+          <groupId>org.flywaydb</groupId>
+          <artifactId>flyway-maven-plugin</artifactId>
+          <version>6.4.0</version>
+          <executions>
+            <execution>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>migrate</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <initSql>SET default_storage_engine=InnoDB;</initSql>
+            <outOfOrder>true</outOfOrder>
+            <driver>com.mysql.cj.jdbc.Driver</driver>
+            <table>schema_version</table>
+            <url>jdbc:mysql://localhost:3306/trabm2_eng2</url>
+            <user>root</user>
+            <password>senha</password> <!-- POR A SENHA CORRETA AQUI-->
+            <schemas>
+              <schema>trabm2_eng2</schema>
+            </schemas>
+            <cleanDisabled>true</cleanDisabled>
+            <locations>
+              <location>filesystem:src/main/resources/db/migration</location>
+            </locations>
+          </configuration>
+        </plugin>
+
+        <!-- Maven plugin -->
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.0</version>
+            <configuration>
+                <source>17</source>
+                <target>17</target>
+                <generatedSourcesDirectory>target/generated-sources/jooq</generatedSourcesDirectory>
+            </configuration>
+        </plugin>
+
+        <!-- jOOQ Codegen Plugin -->
+        <plugin>
+          <groupId>org.jooq</groupId>
+          <artifactId>jooq-codegen-maven</artifactId>
+          <version>3.16.4</version>
+          <executions>
+            <execution>
+              <id>generate-jooq-sources</id>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>generate</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <jdbc>
+              <driver>com.mysql.cj.jdbc.Driver</driver>
+              <url>jdbc:mysql://localhost:3306/trabm2_eng2</url>
+              <user>root</user>
+              <password>senha</password> <!-- POR A SENHA CORRETA AQUI-->
+            </jdbc>
+            <generator>
+              <database>
+                <name>org.jooq.meta.mysql.MySQLDatabase</name>
+                <includes>.*</includes>
+                <inputSchema>trabm2_eng2</inputSchema>
+              </database>
+              <target>
+                <packageName>jooq.steve.db</packageName>
+                <directory>target/generated-sources/jooq</directory>
+              </target>
+            </generator>
+          </configuration>
+        </plugin>
+      </plugins>
     </pluginManagement>
-</build>
+  </build>
 </project>
