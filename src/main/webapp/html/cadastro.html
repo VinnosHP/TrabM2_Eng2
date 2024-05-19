@@ -4,41 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
-    <link
-      rel="stylesheet"
-      href="/TrabM2_Eng2/src/main/webapp/css/cadastro.css"
-    />
+    <link rel="stylesheet" href="../css/cadastro.css"/>
+    <script src="../js/validaCampos.js"></script>
   </head>
   <body>
     <section id="page">
-      <div>
-        <form method="post" class="formCadastro">
-          <h3 style="color: aliceblue">Cadastro</h3>
+      <div id="form">
+        <form method="get" class="formCadastro">
+          <h3>Cadastro</h3>
           <div>
-            <input
-              type="Nome/Sobrenome"
-              placeholder="Nome e Sobrenome"
-              autofocus="true"
-            />
+            <input id="name" type="text" placeholder="Nome e Sobrenome" autofocus="true"/>
           </div>
           <div>
-            <input
-              type="Email"
-              placeholder="Insira o seu email"
-              autofocus="true"
-            />
+            <input id="email" type="email" placeholder="Email" autofocus="true"/>
           </div>
           <div>
-            <input
-              type="Senha"
-              placeholder="Insira sua senha"
-              autofocus="true"
-            />
+            <input id="password" type="password" placeholder="Senha" autofocus="true"/>
           </div>
-          <a style="color: white" href="/">Cadastrar</a>
+          <button type="submit" onclick="validaCadastroCampos()">Cadastrar</button>
         </form>
       </div>
-      <div>
+      <div id="logo">
         <img src="VAV.png" />
       </div>
     </section>
