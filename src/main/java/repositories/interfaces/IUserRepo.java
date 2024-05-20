@@ -2,14 +2,15 @@ package repositories.interfaces;
 
 import java.util.List;
 
-import models.User;
+import repositories.dto.User;
+import webapp.dto.UserForm;
 
 public interface IUserRepo {
-    List<User> getUserList(int userPk);
+    List<User> getUsersList();
 
-    void createNewUser(int questionPk);
+    void createNewUser(UserForm form);
 
-    void updateUser(int answerPk);
+    void updateUser(UserForm form);
 
-    void deleteUser(int answerPk);
+    void deleteUser(Integer userPk);
 }

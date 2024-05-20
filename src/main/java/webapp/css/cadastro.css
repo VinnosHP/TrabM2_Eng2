@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: black;
+  font-family: 'Inter', sans-serif;
+}
+
+section {
+  display: flex;
+  flex-direction: row-reverse;
+  min-height: 100vh;
+}
+
+/* o sinal de > ele pega todos os filhos que tem na tg # e o * pega todos os elementos */
+section > * {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section form {
+  /* border: 1px solid #fff; */
+  border-radius: 5px;
+
+  padding: 1.6rem;
+
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+}
+
+/* pega a primeira div de um section */
+/* section > div:first-child {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgb(26, 26, 26) 51%,
+    rgba(0, 0, 0, 1) 100%
+  );
+} */
+
+form h3 {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+form button {
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+  height: 2.8rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+form input {
+  padding: 2px;
+  padding-left: 8px;
+  background: none;
+  border-inline-color: black;
+  border: 1px solid black;
+  border-width: 2px;
+  border-radius: 10px;
+  width: 45rem;
+  height: 2.8rem;
+}
+
+div#form{
+  background-color: #212121;
+}

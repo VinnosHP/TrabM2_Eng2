@@ -2,14 +2,15 @@ package repositories.interfaces;
 
 import java.util.List;
 
-import models.Question;
+import repositories.dto.Question;
+import webapp.dto.QuestionForm;
 
 public interface IQuestionRepo {
-    List<Question> getUserQuestions(int userPk);
+    List<Question> getUserQuestions(QuestionForm form);
 
-    void insertQuestion(int userPk);
+    void insertQuestion(QuestionForm form);
 
-    void updateQuestion(int questionPk);
+    void updateQuestion(QuestionForm form);
 
-    void deleteQuestion(int questionPk);
+    void deleteQuestion(Integer questionPk);
 }
