@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Responder</title>
         <link rel="stylesheet" href="../css/respondePergunta.css">
-        <script src="../js/scripts.js"></script>
+        <script src="../js/respondePergunta.js"></script>
     </head>
     <body>
         <div class="page" id="div_principal">
@@ -21,8 +21,10 @@
                 <b id="nomeUsuarioPergunta">Usuario</b>
                 <div id="divTextoPergunta">pergunta feita</div>
                 <p>Sua resposta:</p>
-                <textarea id="textAreaResposta" rows="20" cols="50" placeholder="Escreva a resposta aqui..."></textarea>
-                <button id="buttonEnviaResposta" onclick="">Enviar resposta</button>
+                <form id="formEnviaResposta" method="post" onsubmit="return validaEnvioResposta()">
+                    <textarea id="textAreaResposta" rows="20" cols="50" placeholder="Escreva a resposta aqui..."></textarea>
+                    <button type="submit" id="buttonEnviaResposta" onclick="">Enviar resposta</button>
+                </form>
             </div>
         </div>
     </body>
