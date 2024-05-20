@@ -8,6 +8,8 @@ import webapp.dto.QuestionForm;
 public interface IQuestionRepo {
     List<Question> getUserQuestions(QuestionForm form);
 
+    QuestionForm getQuestion(Integer questionPk);
+
     void insertQuestion(QuestionForm form);
 
     void updateQuestion(QuestionForm form);
