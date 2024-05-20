@@ -1,7 +1,6 @@
 package repositories.implementations;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import org.jooq.DSLContext;
 import org.jooq.Record4;
