@@ -23,7 +23,6 @@ function validaCriaCampos(){
 }
 
 function redireciona(link){
-<<<<<<< Updated upstream
     window.location.href = link;
 }
 
@@ -44,7 +43,3 @@ function mostraTabela(tabelaId) {
   }
 
   
-=======
-    window.location.replace(link);
-}
->>>>>>> Stashed changes
