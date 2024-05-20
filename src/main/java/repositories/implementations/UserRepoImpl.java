@@ -1,6 +1,7 @@
 package repositories.implementations;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.jooq.DSLContext;
 import org.jooq.Record4;
@@ -47,6 +48,26 @@ public class UserRepoImpl implements IUserRepo {
     }
 
     @Override
+    public UserForm getUser(Integer userPk) {
+        UserRecord userRecord = ctx.selectFrom(USER)
+                .where(USER.USER_PK.equal(userPk))
+                .fetchOne();
+
+        if (userRecord == null) {
+            throw new NoSuchElementException("User with ID" + userPk + " not found");
+        }
+
+        UserForm userForm = UserForm.builder()
+                .userPk(userRecord.getUserPk())
+                .pictureId(userRecord.getPictureId())
+                .userName(userRecord.getName())
+                .userPassword(userRecord.getPassword())
+                .build();
+
+        return userForm;
+    }
+
+    @Override
     public Boolean getUserLogin(String email, String password, Integer userPk) {
         UserRecord userRecord = ctx.selectFrom(USER)
                 .where(USER.EMAIL.equal(email), USER.PASSWORD.equal(password), USER.USER_PK.equal(userPk))
@@ -55,7 +76,6 @@ public class UserRepoImpl implements IUserRepo {
         if (userRecord == null) {
             return false;
         }
-
         return true;
     }
 
