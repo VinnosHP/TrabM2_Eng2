@@ -180,7 +180,7 @@
             <table>schema_version</table>
             <url>jdbc:mysql://localhost:3306/trabm2_eng2</url>
             <user>root</user>
-            <password>senha</password> <!-- POR A SENHA CORRETA AQUI-->
+            <password>Mzpcvsnv12</password> <!-- POR A SENHA CORRETA AQUI-->
             <schemas>
               <schema>trabm2_eng2</schema>
             </schemas>
@@ -221,7 +221,7 @@
               <driver>com.mysql.cj.jdbc.Driver</driver>
               <url>jdbc:mysql://localhost:3306/trabm2_eng2</url>
               <user>root</user>
-              <password>senha</password> <!-- POR A SENHA CORRETA AQUI-->
+              <password>Mzpcvsnv12</password> <!-- POR A SENHA CORRETA AQUI-->
             </jdbc>
             <generator>
               <database>
