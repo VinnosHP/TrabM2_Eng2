@@ -1,10 +1,6 @@
 body {
   margin: 0;
-<<<<<<< Updated upstream
   font-family: "Inter", sans-serif;
-=======
-  font-family: Arial, sans-serif;
->>>>>>> Stashed changes
   /* background: linear-gradient(#e68c3a, #94b6ef); */
   background: url("FundoDaTela.png") no-repeat center center fixed;
   background-size: cover;
@@ -24,11 +20,8 @@ body {
   padding: 10px;
   border-radius: 5px;
   border: none;
-<<<<<<< Updated upstream
   background-color: #212121;
   color: white;
-=======
->>>>>>> Stashed changes
   outline: none;
 }
 
@@ -71,11 +64,7 @@ body {
   border: 2px solid black;
   background-color: #444;
   width: 20%; /* pode ajustar a largura */
-<<<<<<< Updated upstream
   height: 52%; /*define o tamanho */
-=======
-  height: 45%; /*define o tamanho */
->>>>>>> Stashed changes
   border-radius: 30px;
 }
 
@@ -116,21 +105,13 @@ body {
 .tabela {
   position: fixed;
   top: 50%;
-<<<<<<< Updated upstream
   left: 74%;
-=======
-  left: 70%;
->>>>>>> Stashed changes
   transform: translate(-50%, -50%);
   max-width: 80%; /* Define a largura máxima */
   max-height: 70%; /* Define a altura máxima */
   overflow-y: auto; /* Adiciona rolagem vertical, se necessário */
-<<<<<<< Updated upstream
   background-color: #444;
   border: 2px solid black;
-=======
-  background-color: black;
->>>>>>> Stashed changes
   border-radius: 10px;
   padding: 100px;
   z-index: 999; /* Garante que as tabelas fiquem acima de outros elementos */
@@ -171,7 +152,6 @@ body {
 
 img {
   border-radius: 50px;
-<<<<<<< Updated upstream
 }
 
 #buttonCriaPergunta{
@@ -193,6 +173,4 @@ img {
   padding: 11px;
   padding-left: 20px;
   padding-right: 20px;
-=======
->>>>>>> Stashed changes
 }

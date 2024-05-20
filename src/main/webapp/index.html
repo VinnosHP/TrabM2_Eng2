@@ -9,14 +9,14 @@
   </head>
   <body>
     <div class="page" name="div_principal">
-      <form method="get" class="formLogin" action="">
+      <form method="get" class="formLogin" action="servlet">
         <h1>Login</h1>
         <p>Digite os seus dados de acesso no campo abaixo.</p>
         <div id="divCaixaEmail">
-          <input id="email" type="email" placeholder="Digite o seu email" autofocus="true"/>
+          <input id="email" name="email" type="email" placeholder="Digite o seu email" autofocus="true" required/>
         </div>
         <div id="divCaixaPassword">
-          <input id="password" type="password" placeholder="Digite a sua senha" />
+          <input id="password" name="password" type="password" placeholder="Digite a sua senha" required/>
         </div>
         <div id="divLogin">
           <button type="submit" onclick="validaLoginCampos()">Entrar</button>
