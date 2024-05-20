@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pergunta</title>
-        <link rel="stylesheet" href="../css/pergunta.css">
+        <title>Responder</title>
+        <link rel="stylesheet" href="../css/respondePergunta.css">
         <script src="../js/scripts.js"></script>
     </head>
     <body>
@@ -20,16 +20,9 @@
                 <img id="img_Perfil" src="../Fotos_Perfil/patoGamer.jpg" width="20" height="20" alt="Foto de Perfil"/>
                 <b id="nomeUsuarioPergunta">Usuario</b>
                 <div id="divTextoPergunta">pergunta feita</div>
-                <p>Respostas</p>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><img src="" alt="Foto de perfil resposta"></td>
-                            <td>Usuario</td><td><p>corpo da pergunta</p></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button id="buttonRespondePergunta" onclick="">Responder...</button>
+                <p>Sua resposta:</p>
+                <textarea id="textAreaResposta" rows="20" cols="50" placeholder="Escreva a resposta aqui..."></textarea>
+                <button id="buttonEnviaResposta" onclick="">Enviar resposta</button>
             </div>
         </div>
     </body>
