@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pergunta</title>
-        <link rel="stylesheet" href="../css/pergunta.css">
-        <script src="../js/pergunta.js"></script>
+        <title>Responder</title>
+        <link rel="stylesheet" href="../css/respondePergunta.css">
+        <script src="../js/respondePergunta.js"></script>
     </head>
     <body>
         <div class="page" id="div_principal">
@@ -20,16 +20,11 @@
                 <img id="img_Perfil" src="../Fotos_Perfil/patoGamer.jpg" width="20" height="20" alt="Foto de Perfil"/>
                 <b id="nomeUsuarioPergunta">Usuario</b>
                 <div id="divTextoPergunta">pergunta feita</div>
-                <p>Respostas</p>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><img src="" alt="Foto de perfil resposta"></td>
-                            <td>Usuario</td><td><p>corpo da pergunta</p></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button id="buttonRespondePergunta" onclick="">Responder...</button>
+                <p>Sua resposta:</p>
+                <form id="formEnviaResposta" method="post" onsubmit="return validaEnvioResposta()">
+                    <textarea id="textAreaResposta" rows="20" cols="50" placeholder="Escreva a resposta aqui..."></textarea>
+                    <button type="submit" id="buttonEnviaResposta" onclick="">Enviar resposta</button>
+                </form>
             </div>
         </div>
     </body>
