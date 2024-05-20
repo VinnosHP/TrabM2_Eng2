@@ -23,7 +23,7 @@ function validaCriaCampos(){
 }
 
 function redireciona(link){
-    window.location.replace(link);
+    window.location.href = link;
 }
 
 function mostraTabela(tabelaId) {
