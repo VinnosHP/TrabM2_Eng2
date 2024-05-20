@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pergunta</title>
+        <link rel="stylesheet" href="../css/pergunta.css">
+        <script src="../js/pergunta.js"></script>
+    </head>
+    <body>
+        <div class="page" id="div_principal">
+            <nav class="topnav" id="topNav">
+                <input type="text" id="pesquisaPergunta" placeholder="Pesquisar pergunta"/>
+                <div id="nomeLogo">Nome/Logo</div>
+                <button id="buttonCriaPergunta" onclick="redireciona('criaPergunta.html')">Criar pergunta</button>
+                <button id="buttonConfiguracoes">Config</button>
+            </nav>
+            <div class="blocoPergunta" id="div_BlocoPergunta">
+                <h1>Pergunta</h1>
+                <img id="img_Perfil" src="../Fotos_Perfil/patoGamer.jpg" width="20" height="20" alt="Foto de Perfil"/>
+                <b id="nomeUsuarioPergunta">Usuario</b>
+                <div id="divTextoPergunta">pergunta feita</div>
+                <p>Respostas</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><img src="" alt="Foto de perfil resposta"></td>
+                            <td>Usuario</td><td><p>corpo da pergunta</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="buttonRespondePergunta" onclick="">Responder...</button>
+            </div>
+        </div>
+    </body>
+</html>
