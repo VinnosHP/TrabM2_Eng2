@@ -11,13 +11,13 @@ public class MeuServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
     String email = req.getParameter("email");
-        String password = req.getParameter("password");
+    String password = req.getParameter("password");
 
-        if ("vinihp13@gmail.com".equals(email) && "vini123".equals(password)) {
-            getServletContext().getRequestDispatcher("/html/perfil.html").forward(req, resp);
-        } else {
-            getServletContext().getRequestDispatcher("/index.html").forward(req, resp);
-        }
+    if ("vinihp13@gmail.com".equals(email) && "vini123".equals(password)) {
+      getServletContext().getRequestDispatcher("/html/perfil.html").forward(req, resp);
+    } else {
+      getServletContext().getRequestDispatcher("/index.html").forward(req, resp);
+    }
   }
   
   @Override
