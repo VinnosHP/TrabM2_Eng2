@@ -4,4 +4,17 @@
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
   http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
   <display-name>Archetype Created Web Application</display-name>
+<<<<<<< Updated upstream
+=======
+
+  <servlet>
+        <servlet-name>MeuServlet</servlet-name>
+        <servlet-class>servlet.MeuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MeuServlet</servlet-name>
+        <url-pattern>/servlet</url-pattern>
+    </servlet-mapping>
+  
+>>>>>>> Stashed changes
 </web-app>

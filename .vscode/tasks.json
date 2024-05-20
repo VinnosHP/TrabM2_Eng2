@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+        "label": "build",
+        "type": "shell",
+        "command": "javac",
+        "args": [
+            "-d",
+            "build",
+            "src/main/java/servlet/MeuServlet.java"
+        ],
+        "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

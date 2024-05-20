@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "name": "Launch MeuServlet",
+        "request": "launch",
+        "mainClass": "servlet.MeuServlet",
+        "projectName": "TrabM2_Eng2"
+      }
+    ]
+  }
