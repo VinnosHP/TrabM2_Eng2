@@ -88,7 +88,7 @@ public class SchemaVersion extends TableImpl<SchemaVersionRecord> {
     /**
      * The column <code>trabm2_eng2.schema_version.installed_on</code>.
      */
-    public final TableField<SchemaVersionRecord, LocalDateTime> INSTALLED_ON = createField(DSL.name("installed_on"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("CURRENT_TIMESTAMP", SQLDataType.LOCALDATETIME)), this, "");
+    public final TableField<SchemaVersionRecord, LocalDateTime> INSTALLED_ON = createField(DSL.name("installed_on"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
      * The column <code>trabm2_eng2.schema_version.execution_time</code>.
