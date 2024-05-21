@@ -180,7 +180,7 @@
             <table>schema_version</table>
             <url>jdbc:mysql://localhost:3306/trabm2_eng2</url>
             <user>root</user>
-            <password>senha</password> <!-- POR A SENHA CORRETA AQUI-->
+            <password>Vinnoshp15</password> <!-- POR A SENHA CORRETA AQUI-->
             <schemas>
               <schema>trabm2_eng2</schema>
             </schemas>
@@ -188,6 +188,7 @@
             <locations>
               <location>filesystem:src/main/resources/db/migration</location>
             </locations>
+            <baselineOnMigrate>true</baselineOnMigrate>
           </configuration>
         </plugin>
 
@@ -221,7 +222,7 @@
               <driver>com.mysql.cj.jdbc.Driver</driver>
               <url>jdbc:mysql://localhost:3306/trabm2_eng2</url>
               <user>root</user>
-              <password>senha</password> <!-- POR A SENHA CORRETA AQUI-->
+              <password>Vinnoshp15</password> <!-- POR A SENHA CORRETA AQUI-->
             </jdbc>
             <generator>
               <database>

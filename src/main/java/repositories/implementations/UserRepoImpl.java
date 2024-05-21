@@ -6,6 +6,7 @@ import org.jooq.DSLContext;
 import org.jooq.Record4;
 import org.jooq.SelectConditionStep;
 import org.jooq.exception.DataAccessException;
+import jooq.steve.db.tables.records.UserRecord;
 import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -43,6 +44,19 @@ public class UserRepoImpl implements IUserRepo {
                         .userEmail(r.value3())
                         .userPassword(r.value4())
                         .build());
+    }
+
+    @Override
+    public Boolean getUserLogin(String email, String password, Integer userPk) {
+        UserRecord userRecord = ctx.selectFrom(USER)
+                .where(USER.EMAIL.equal(email), USER.PASSWORD.equal(password), USER.USER_PK.equal(userPk))
+                .fetchOne();
+
+        if (userRecord == null) {
+            return false;
+        }
+
+        return true;
     }
 
     @Override
