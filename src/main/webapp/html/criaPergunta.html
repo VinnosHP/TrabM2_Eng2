@@ -4,43 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Criar Pergunta</title>
-    <link rel="stylesheet" href="/src/main/webapp/css/criaPergunta.css" />
-    <script>
-      function redireciona(link) {
-        // Função para redirecionar para outra página, tem que ver os links certinhos
-      }
-
-      function verificaSubmit() {
-        if (document.getElementById("textAreaFormulario").value == "") {
-          window.alert("Falha! Texto vazio.");
-          return false;
-        }
-        return true;
-      }
-    </script>
+    <link rel="stylesheet" href="../css/criaPergunta.css" />
+    <script src="../js/criaPergunta.js"></script>
   </head>
   <body>
     <nav class="navbar">
-      <button class="nav-button" onclick="redireciona('')">Perfil</button>
+      <button class="nav-button" onclick="redireciona('perfil.html')">Perfil</button>
       <div class="logo">Nome/logo</div>
-      <button class="nav-button" onclick="redireciona('')">
+      <button class="nav-button" onclick="redireciona('criaPergunta.html')">
         Criar pergunta
       </button>
     </nav>
     <main class="main-content">
       <div class="form-container">
         <h1>Criar pergunta</h1>
-        <form
-          id="formEnviaPergunta"
-          method="get"
-          onsubmit="return verificaSubmit()"
-        >
-          <textarea
-            id="textAreaFormulario"
-            rows="20"
-            cols="50"
-            placeholder="Escreva a pergunta aqui..."
-          ></textarea>
+        <form id="formEnviaPergunta" method="get" onsubmit="return validaCriaPergunta()">
+          <textarea id="textAreaFormulario" rows="20" cols="50" placeholder="Escreva a pergunta aqui..."></textarea>
           <button type="submit" id="buttonEnviaPergunta">Enviar</button>
         </form>
       </div>

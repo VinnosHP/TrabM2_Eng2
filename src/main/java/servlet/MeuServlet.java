@@ -6,13 +6,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
-@WebServlet("/meu-servlet")
+@WebServlet("/servlet")
 public class MeuServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-    if (req.getParameter("username") == "ademiro") {
-      req.getRequestDispatcher("html/tela_principal.html").forward(req, resp);
-    }else req.getRequestDispatcher("index.html").forward(req, resp);
+    String email = req.getParameter("email");
+    String password = req.getParameter("password");
+
+    if ("vinihp13@gmail.com".equals(email) && "vini123".equals(password)) {
+      getServletContext().getRequestDispatcher("/html/perfil.html").forward(req, resp);
+    } else {
+      getServletContext().getRequestDispatcher("/index.html").forward(req, resp);
+    }
   }
   
   @Override

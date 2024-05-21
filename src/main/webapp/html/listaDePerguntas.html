@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Perguntas</title>
+        <link rel="stylesheet" href="../css/listaDePerguntas.css">
+        <script src="../js/listaDePerguntas.js"></script>
+    </head>
+    <body>
+        <div class="page" id="div_principal">
+            <nav class="topnav" id="topNav">
+                <input type="text" id="pesquisaPergunta" placeholder="Pesquisar pergunta"/>
+                <div id="nomeLogo">Nome/Logo</div>
+                <button id="buttonCriaPergunta" onclick="redireciona('criaPergunta.html')">Criar pergunta</button>
+                <button id="buttonConfiguracoes">Config</button>
+            </nav>
+            <div class="blocoPerguntas" id="div_BlocoPerguntas">
+                <h1>Perguntas</h1>
+                <table id="tablePerguntas">
+                    <tbody>
+                        <tr>
+                            <td><img src="/Fotos_Perfil/omw.jpg" alt="Foto de perfil"></td>
+                            <td>Usuario</td><td><p>corpo da pergunta</p></td><td><button onclick="respondePergunta()">Responder</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="/Fotos_Perfil/omw.jpg" alt="Foto de perfil"></td>
+                            <td>Usuario2</td><td><p>corpo da pergunta</p></td><td><button onclick="respondePergunta()">Responder</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="/Fotos_Perfil/omw.jpg" alt="Foto de perfil"></td>
+                            <td>Usuario3</td><td><p>corpo da pergunta</p></td><td><button onclick="respondePergunta()">Responder</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
