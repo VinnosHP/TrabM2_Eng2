@@ -3,7 +3,7 @@ package repositories.interfaces;
 import java.util.List;
 
 import repositories.dto.AnswerDTO;
-import webapp.dto.AnswerForm;
+import web.dto.AnswerForm;
 
 public interface IAnswerRepo {
     List<AnswerDTO> getAllUsersAnswers(AnswerForm form);

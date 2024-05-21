@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import repositories.dto.UserDTO;
 import repositories.interfaces.IUserRepo;
 import services.interfaces.IUser;
-import webapp.dto.UserForm;
+import web.dto.UserForm;
 
 @Service
 public class UserService implements IUser {
@@ -47,17 +47,21 @@ public class UserService implements IUser {
 
     @Override
     public UserForm getUser(Integer userPk) {
-        return userRepo.getUser(userPk);
+        UserForm getUser = userRepo.getUser(userPk);
+
+        return getUser.clone();
     }
 
     @Override
     public void createNewUser(UserForm form) {
-        userRepo.createNewUser(form);
+        UserForm newUser = form.clone();
+        userRepo.createNewUser(newUser);
     }
 
     @Override
     public void updateUser(UserForm form) {
-        userRepo.updateUser(form);
+        UserForm updatedUser = form.clone();
+        userRepo.updateUser(updatedUser);
     }
 
     @Override

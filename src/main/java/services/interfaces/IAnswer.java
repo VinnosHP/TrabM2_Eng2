@@ -4,7 +4,7 @@ import java.util.List;
 
 import observers.interfaces.IObserver;
 import repositories.dto.AnswerDTO;
-import webapp.dto.AnswerForm;
+import web.dto.AnswerForm;
 
 public interface IAnswer {
     public int getUserAnswerCount(Integer userPk);

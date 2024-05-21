@@ -11,9 +11,9 @@ import repositories.dto.UserDTO;
 import services.interfaces.IAnswer;
 import services.interfaces.IQuestion;
 import services.interfaces.IUser;
-import webapp.dto.AnswerForm;
-import webapp.dto.QuestionForm;
-import webapp.dto.UserForm;
+import web.dto.AnswerForm;
+import web.dto.QuestionForm;
+import web.dto.UserForm;
 
 @Service
 public class Facade {

@@ -3,7 +3,7 @@ package repositories.interfaces;
 import java.util.List;
 
 import repositories.dto.UserDTO;
-import webapp.dto.UserForm;
+import web.dto.UserForm;
 
 public interface IUserRepo {
     List<UserDTO> getUsersList();

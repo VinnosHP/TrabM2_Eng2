@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import jooq.steve.db.tables.records.QuestionRecord;
 import repositories.dto.QuestionDTO;
 import repositories.interfaces.IQuestionRepo;
-import webapp.dto.QuestionForm;
+import web.dto.QuestionForm;
 
 import static jooq.steve.db.tables.Question.QUESTION;
 import static org.springframework.util.ObjectUtils.isEmpty;

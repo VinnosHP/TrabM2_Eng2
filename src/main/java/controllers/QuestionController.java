@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import repositories.interfaces.IQuestionRepo;
-import webapp.dto.QuestionForm;
+import web.dto.QuestionForm;
 
 @Controller
 @RequestMapping(value = "/admin/questions")

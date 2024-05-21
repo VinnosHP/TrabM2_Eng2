@@ -10,7 +10,7 @@ import repositories.dto.QuestionDTO;
 import repositories.interfaces.IAnswerRepo;
 import repositories.interfaces.IQuestionRepo;
 import services.interfaces.IQuestion;
-import webapp.dto.QuestionForm;
+import web.dto.QuestionForm;
 
 @Service
 public class QuestionService implements IQuestion {
@@ -55,17 +55,21 @@ public class QuestionService implements IQuestion {
 
     @Override
     public QuestionForm getQuestion(Integer questionPk) {
-        return questionRepo.getQuestion(questionPk);
+        QuestionForm getQuestion = questionRepo.getQuestion(questionPk);
+
+        return getQuestion.clone();
     }
 
     @Override
     public void insertQuestion(QuestionForm form) {
-        questionRepo.insertQuestion(form);
+        QuestionForm newQuestion = form.clone();
+        questionRepo.insertQuestion(newQuestion);
     }
 
     @Override
     public void updateQuestion(QuestionForm form) {
-        questionRepo.updateQuestion(form);
+        QuestionForm updatedQuestion = form.clone();
+        questionRepo.updateQuestion(updatedQuestion);
     }
 
     @Override

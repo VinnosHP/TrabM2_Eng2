@@ -3,7 +3,7 @@ package repositories.interfaces;
 import java.util.List;
 
 import repositories.dto.QuestionDTO;
-import webapp.dto.QuestionForm;
+import web.dto.QuestionForm;
 
 public interface IQuestionRepo {
     List<QuestionDTO> getAllUsersQuestions(QuestionForm form);

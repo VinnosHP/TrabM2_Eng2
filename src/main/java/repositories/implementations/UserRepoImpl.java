@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import repositories.dto.UserDTO;
 import repositories.interfaces.IUserRepo;
-import webapp.dto.UserForm;
+import web.dto.UserForm;
 
 import static jooq.steve.db.tables.User.USER;
 

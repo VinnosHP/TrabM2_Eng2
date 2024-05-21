@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import repositories.dto.AnswerDTO;
 import repositories.interfaces.IAnswerRepo;
-import webapp.dto.AnswerForm;
+import web.dto.AnswerForm;
 
 import static jooq.steve.db.tables.Answer.ANSWER;
 import static org.springframework.util.ObjectUtils.isEmpty;

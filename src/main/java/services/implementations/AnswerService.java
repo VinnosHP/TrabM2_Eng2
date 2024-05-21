@@ -11,7 +11,7 @@ import observers.interfaces.ISubject;
 import repositories.dto.AnswerDTO;
 import repositories.interfaces.IAnswerRepo;
 import services.interfaces.IAnswer;
-import webapp.dto.AnswerForm;
+import web.dto.AnswerForm;
 
 @Service
 public class AnswerService implements IAnswer {
@@ -49,19 +49,21 @@ public class AnswerService implements IAnswer {
 
     @Override
     public void insertAnswer(AnswerForm form) {
+        AnswerForm newAnswer = form.clone();
         Answer answer = new Answer();
         answer.setAnswerText(form.getAnswerText());
         answer.setQuestionPk(form.getQuestionPk());
         answer.setUserPk(form.getUserPk());
 
-        answerRepo.insertAnswer(form);
+        answerRepo.insertAnswer(newAnswer);
 
         subject.notifyObservers(answer);
     }
 
     @Override
     public void updateAnswer(AnswerForm form) {
-        answerRepo.updateAnswer(form);
+        AnswerForm updatedAnswer = form.clone();
+        answerRepo.updateAnswer(updatedAnswer);
     }
 
     @Override

@@ -21,4 +21,5 @@ public class AnswerDTO {
 
     @JsonProperty("answer_text")
     private String answerText;
+
 }

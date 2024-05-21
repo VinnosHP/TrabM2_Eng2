@@ -1,4 +1,4 @@
-package webapp.dto;
+package web.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -8,12 +8,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import repositories.prototype.IPrototype;
+
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AnswerForm {
+public class AnswerForm implements IPrototype {
     @JsonProperty("answer_pk")
     private Integer answerPk;
 
@@ -25,4 +27,14 @@ public class AnswerForm {
 
     @JsonProperty("answer_text")
     private String answerText;
+
+    @Override
+    public AnswerForm clone() {
+        return AnswerForm.builder()
+                .answerPk(this.answerPk)
+                .userPk(this.userPk)
+                .questionPk(this.questionPk)
+                .answerText(this.answerText)
+                .build();
+    }
 }

@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import repositories.interfaces.IAnswerRepo;
 import repositories.interfaces.IUserRepo;
 import services.interfaces.IAnswer;
-import webapp.dto.AnswerForm;
+import web.dto.AnswerForm;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 import models.User;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import repositories.dto.AnswerDTO;
 import repositories.dto.QuestionDTO;
-import webapp.dto.QuestionForm;
+import web.dto.QuestionForm;
 
 public interface IQuestion {
     int getUserQuestionCount(Integer userPk);

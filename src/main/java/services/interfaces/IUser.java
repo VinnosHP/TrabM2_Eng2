@@ -3,7 +3,7 @@ package services.interfaces;
 import java.util.List;
 
 import repositories.dto.UserDTO;
-import webapp.dto.UserForm;
+import web.dto.UserForm;
 
 public interface IUser {
     Integer getUserPkByEmailAndPassword(String email, String password);

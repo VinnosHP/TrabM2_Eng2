@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import repositories.interfaces.IUserRepo;
-import webapp.dto.UserForm;
+import web.dto.UserForm;
 
 @Controller
 @RequestMapping(value = "/admin/user")
