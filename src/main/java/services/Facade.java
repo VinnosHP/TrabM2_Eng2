@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import repositories.dto.Answer;
-import repositories.dto.Question;
-import repositories.dto.User;
+import repositories.dto.AnswerDTO;
+import repositories.dto.QuestionDTO;
+import repositories.dto.UserDTO;
 import services.interfaces.IAnswer;
 import services.interfaces.IQuestion;
 import services.interfaces.IUser;
@@ -16,7 +16,7 @@ import webapp.dto.QuestionForm;
 import webapp.dto.UserForm;
 
 @Service
-public class FacadeService {
+public class Facade {
     private final IUser userService;
 
     private final IQuestion questionService;
@@ -24,7 +24,7 @@ public class FacadeService {
     private final IAnswer answerService;
 
     @Autowired
-    public FacadeService(IUser userService, IQuestion questionService, IAnswer answerService) {
+    public Facade(IUser userService, IQuestion questionService, IAnswer answerService) {
         this.userService = userService;
         this.questionService = questionService;
         this.answerService = answerService;
@@ -48,7 +48,7 @@ public class FacadeService {
         userService.deleteUser(userPk);
     }
 
-    public List<User> getUsersList() {
+    public List<UserDTO> getUsersList() {
         return userService.getUsersList();
     }
 
@@ -62,7 +62,7 @@ public class FacadeService {
         return questionService.getUserQuestionCount(userPk);
     }
 
-    public List<Question> getUserQuestions(Integer userPk) {
+    public List<QuestionDTO> getUserQuestions(Integer userPk) {
         return questionService.getUserQuestions(userPk);
     }
 
@@ -84,7 +84,7 @@ public class FacadeService {
         return answerService.getUserAnswerCount(userPk);
     }
 
-    public List<Answer> getUserAnswers(Integer userPk) {
+    public List<AnswerDTO> getUserAnswers(Integer userPk) {
         return answerService.getUserAnswers(userPk);
     }
 
@@ -102,7 +102,7 @@ public class FacadeService {
 
     // Methods related to answers and questions
 
-    public List<Answer> getAnswersForQuestion(Integer questionPk) {
+    public List<AnswerDTO> getAnswersForQuestion(Integer questionPk) {
         return questionService.getAnswersForQuestion(questionPk);
     }
 

@@ -2,7 +2,7 @@ package services.interfaces;
 
 import java.util.List;
 
-import repositories.dto.User;
+import repositories.dto.UserDTO;
 import webapp.dto.UserForm;
 
 public interface IUser {
@@ -10,7 +10,7 @@ public interface IUser {
 
     boolean validateUserLogin(String email, String password);
 
-    List<User> getUsersList();
+    List<UserDTO> getUsersList();
 
     UserForm getUser(Integer userPk);
 

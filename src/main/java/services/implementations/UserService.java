@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import repositories.dto.User;
+import repositories.dto.UserDTO;
 import repositories.interfaces.IUserRepo;
 import services.interfaces.IUser;
 import webapp.dto.UserForm;
@@ -22,9 +22,9 @@ public class UserService implements IUser {
 
     @Override
     public Integer getUserPkByEmailAndPassword(String email, String password) {
-        List<User> userList = userRepo.getUsersList();
+        List<UserDTO> userList = userRepo.getUsersList();
 
-        for (User user : userList) {
+        for (UserDTO user : userList) {
             if (user.getUserEmail().equals(email) && user.getUserPassword().equals(password)) {
                 return user.getUserPk();
             }
@@ -41,7 +41,7 @@ public class UserService implements IUser {
     }
 
     @Override
-    public List<User> getUsersList() {
+    public List<UserDTO> getUsersList() {
         return userRepo.getUsersList();
     }
 

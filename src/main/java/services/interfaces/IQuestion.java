@@ -2,20 +2,20 @@ package services.interfaces;
 
 import java.util.List;
 
-import repositories.dto.Answer;
-import repositories.dto.Question;
+import repositories.dto.AnswerDTO;
+import repositories.dto.QuestionDTO;
 import webapp.dto.QuestionForm;
 
 public interface IQuestion {
     int getUserQuestionCount(Integer userPk);
 
-    List<Question> getUserQuestions(Integer userPk);
+    List<QuestionDTO> getUserQuestions(Integer userPk);
 
-    List<Answer> getAnswersForQuestion(Integer questionPk);
+    List<AnswerDTO> getAnswersForQuestion(Integer questionPk);
 
     int getAnswersForQuestionCount(Integer questionPk);
 
-    List<Question> getAllUsersQuestions(QuestionForm form);
+    List<QuestionDTO> getAllUsersQuestions(QuestionForm form);
 
     QuestionForm getQuestion(Integer questionPk);
 

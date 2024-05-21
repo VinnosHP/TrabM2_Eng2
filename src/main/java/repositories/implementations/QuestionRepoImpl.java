@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import jooq.steve.db.tables.records.QuestionRecord;
-import repositories.dto.Question;
+import repositories.dto.QuestionDTO;
 import repositories.interfaces.IQuestionRepo;
 import webapp.dto.QuestionForm;
 
@@ -30,7 +30,7 @@ public class QuestionRepoImpl implements IQuestionRepo {
     }
 
     @Override
-    public List<repositories.dto.Question> getAllUsersQuestions(QuestionForm form) {
+    public List<repositories.dto.QuestionDTO> getAllUsersQuestions(QuestionForm form) {
         SelectConditionStep<Record2<Integer, String>> query = ctx.select(
                 QUESTION.USER_PK,
                 QUESTION.QUESTION_TEXT)
@@ -42,14 +42,14 @@ public class QuestionRepoImpl implements IQuestionRepo {
         }
 
         return query.fetch()
-                .map(r -> Question.builder()
+                .map(r -> QuestionDTO.builder()
                         .userPk(r.value1())
                         .questionText(r.value2())
                         .build());
     }
 
     @Override
-    public List<Question> getQuestionsByUser(Integer userPk) {
+    public List<QuestionDTO> getQuestionsByUser(Integer userPk) {
         SelectConditionStep<Record2<Integer, String>> query = ctx.select(
                 QUESTION.USER_PK,
                 QUESTION.QUESTION_TEXT)
@@ -57,7 +57,7 @@ public class QuestionRepoImpl implements IQuestionRepo {
                 .where(QUESTION.USER_PK.equal(userPk));
 
         return query.fetch()
-                .map(r -> Question.builder()
+                .map(r -> QuestionDTO.builder()
                         .userPk(r.value1())
                         .questionText(r.value2())
                         .build());

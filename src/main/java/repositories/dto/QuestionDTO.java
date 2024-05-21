@@ -9,16 +9,13 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
-public class Answer {
-    @JsonProperty("answer_pk")
-    private Integer answerPk;
+public class QuestionDTO {
+    @JsonProperty("question_pk")
+    private Integer questionPk;
 
     @JsonProperty("user_pk")
     private Integer userPk;
 
-    @JsonProperty("question_pk")
-    private Integer questionPk;
-
-    @JsonProperty("answer_text")
-    private String answerText;
+    @JsonProperty("question_text")
+    private String questionText;
 }

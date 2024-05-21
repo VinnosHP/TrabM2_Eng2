@@ -2,21 +2,26 @@ package services.interfaces;
 
 import java.util.List;
 
-import repositories.dto.Answer;
+import observers.interfaces.IObserver;
+import repositories.dto.AnswerDTO;
 import webapp.dto.AnswerForm;
 
 public interface IAnswer {
     public int getUserAnswerCount(Integer userPk);
 
-    public List<Answer> getUserAnswers(Integer userPk);
+    public List<AnswerDTO> getUserAnswers(Integer userPk);
 
-    List<Answer> getAllUsersAnswers(AnswerForm form);
+    List<AnswerDTO> getAllUsersAnswers(AnswerForm form);
 
-    List<Answer> getAnswersByQuestion(Integer questionPk);
+    List<AnswerDTO> getAnswersByQuestion(Integer questionPk);
 
     public void insertAnswer(AnswerForm form);
 
     public void updateAnswer(AnswerForm form);
 
     public void deleteAnswer(Integer answerPk);
+
+    public void attachObserver(IObserver observer);
+
+    public void detachObserver(IObserver observer);
 }

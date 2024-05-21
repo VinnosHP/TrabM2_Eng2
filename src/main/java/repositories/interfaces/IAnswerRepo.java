@@ -2,15 +2,15 @@ package repositories.interfaces;
 
 import java.util.List;
 
-import repositories.dto.Answer;
+import repositories.dto.AnswerDTO;
 import webapp.dto.AnswerForm;
 
 public interface IAnswerRepo {
-    List<Answer> getAllUsersAnswers(AnswerForm form);
+    List<AnswerDTO> getAllUsersAnswers(AnswerForm form);
 
-    List<Answer> getAnswersByUser(Integer userPk);
+    List<AnswerDTO> getAnswersByUser(Integer userPk);
 
-    List<Answer> getAnswersByQuestion(Integer questionPk);
+    List<AnswerDTO> getAnswersByQuestion(Integer questionPk);
 
     void insertAnswer(AnswerForm form);
 

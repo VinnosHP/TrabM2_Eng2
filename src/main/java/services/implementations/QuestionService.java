@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import repositories.dto.Answer;
-import repositories.dto.Question;
+import repositories.dto.AnswerDTO;
+import repositories.dto.QuestionDTO;
 import repositories.interfaces.IAnswerRepo;
 import repositories.interfaces.IQuestionRepo;
 import services.interfaces.IQuestion;
@@ -26,30 +26,30 @@ public class QuestionService implements IQuestion {
 
     @Override
     public int getUserQuestionCount(Integer userPk) {
-        List<Question> userQuestions = questionRepo.getQuestionsByUser(userPk);
+        List<QuestionDTO> userQuestions = questionRepo.getQuestionsByUser(userPk);
 
         return userQuestions.size();
     }
 
     @Override
-    public List<Question> getUserQuestions(Integer userPk) {
+    public List<QuestionDTO> getUserQuestions(Integer userPk) {
         return questionRepo.getQuestionsByUser(userPk);
     }
 
     @Override
-    public List<Answer> getAnswersForQuestion(Integer questionPk) {
+    public List<AnswerDTO> getAnswersForQuestion(Integer questionPk) {
         return answerRepo.getAnswersByQuestion(questionPk);
     }
 
     @Override
     public int getAnswersForQuestionCount(Integer questionPk) {
-        List<Answer> answerQuestions = answerRepo.getAnswersByQuestion(questionPk);
+        List<AnswerDTO> answerQuestions = answerRepo.getAnswersByQuestion(questionPk);
 
         return answerQuestions.size();
     }
 
     @Override
-    public List<Question> getAllUsersQuestions(QuestionForm form) {
+    public List<QuestionDTO> getAllUsersQuestions(QuestionForm form) {
         return questionRepo.getAllUsersQuestions(form);
     }
 
