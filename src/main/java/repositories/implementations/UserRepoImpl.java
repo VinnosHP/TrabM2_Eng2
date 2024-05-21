@@ -12,9 +12,9 @@ import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import repositories.dto.User;
+import repositories.dto.UserDTO;
 import repositories.interfaces.IUserRepo;
-import webapp.dto.UserForm;
+import web.dto.UserForm;
 
 import static jooq.steve.db.tables.User.USER;
 
@@ -29,7 +29,7 @@ public class UserRepoImpl implements IUserRepo {
     }
 
     @Override
-    public List<User> getUsersList() {
+    public List<UserDTO> getUsersList() {
         SelectConditionStep<Record4<Integer, String, String, String>> query = ctx.select(
                 USER.PICTURE_ID,
                 USER.NAME,
@@ -39,7 +39,7 @@ public class UserRepoImpl implements IUserRepo {
                 .where();
 
         return query.fetch()
-                .map(r -> User.builder()
+                .map(r -> UserDTO.builder()
                         .pictureId(r.value1())
                         .userName(r.value2())
                         .userEmail(r.value3())
@@ -65,18 +65,6 @@ public class UserRepoImpl implements IUserRepo {
                 .build();
 
         return userForm;
-    }
-
-    @Override
-    public Boolean getUserLogin(String email, String password, Integer userPk) {
-        UserRecord userRecord = ctx.selectFrom(USER)
-                .where(USER.EMAIL.equal(email), USER.PASSWORD.equal(password), USER.USER_PK.equal(userPk))
-                .fetchOne();
-
-        if (userRecord == null) {
-            return false;
-        }
-        return true;
     }
 
     @Override

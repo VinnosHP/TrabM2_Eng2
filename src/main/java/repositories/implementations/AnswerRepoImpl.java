@@ -10,9 +10,9 @@ import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import repositories.dto.Answer;
+import repositories.dto.AnswerDTO;
 import repositories.interfaces.IAnswerRepo;
-import webapp.dto.AnswerForm;
+import web.dto.AnswerForm;
 
 import static jooq.steve.db.tables.Answer.ANSWER;
 import static org.springframework.util.ObjectUtils.isEmpty;
@@ -28,7 +28,7 @@ public class AnswerRepoImpl implements IAnswerRepo {
     }
 
     @Override
-    public List<repositories.dto.Answer> getUserAnswers(AnswerForm form) {
+    public List<repositories.dto.AnswerDTO> getAllUsersAnswers(AnswerForm form) {
         SelectConditionStep<Record3<Integer, Integer, String>> query = ctx.select(
                 ANSWER.USER_PK,
                 ANSWER.QUESTION_PK,
@@ -45,7 +45,41 @@ public class AnswerRepoImpl implements IAnswerRepo {
         }
 
         return query.fetch()
-                .map(r -> Answer.builder()
+                .map(r -> AnswerDTO.builder()
+                        .userPk(r.value1())
+                        .questionPk(r.value2())
+                        .answerText(r.value3())
+                        .build());
+    }
+
+    @Override
+    public List<AnswerDTO> getAnswersByUser(Integer userPk) {
+        SelectConditionStep<Record3<Integer, Integer, String>> query = ctx.select(
+                ANSWER.USER_PK,
+                ANSWER.QUESTION_PK,
+                ANSWER.ANSWER_TEXT)
+                .from(ANSWER)
+                .where(ANSWER.USER_PK.equal(userPk));
+
+        return query.fetch()
+                .map(r -> AnswerDTO.builder()
+                        .userPk(r.value1())
+                        .questionPk(r.value2())
+                        .answerText(r.value3())
+                        .build());
+    }
+
+    @Override
+    public List<AnswerDTO> getAnswersByQuestion(Integer questionPk) {
+        SelectConditionStep<Record3<Integer, Integer, String>> query = ctx.select(
+                ANSWER.USER_PK,
+                ANSWER.QUESTION_PK,
+                ANSWER.ANSWER_TEXT)
+                .from(ANSWER)
+                .where(ANSWER.QUESTION_PK.equal(questionPk));
+
+        return query.fetch()
+                .map(r -> AnswerDTO.builder()
                         .userPk(r.value1())
                         .questionPk(r.value2())
                         .answerText(r.value3())

@@ -2,11 +2,13 @@ package repositories.interfaces;
 
 import java.util.List;
 
-import repositories.dto.Question;
-import webapp.dto.QuestionForm;
+import repositories.dto.QuestionDTO;
+import web.dto.QuestionForm;
 
 public interface IQuestionRepo {
-    List<Question> getUserQuestions(QuestionForm form);
+    List<QuestionDTO> getAllUsersQuestions(QuestionForm form);
+
+    List<QuestionDTO> getQuestionsByUser(Integer userPk);
 
     QuestionForm getQuestion(Integer questionPk);
 

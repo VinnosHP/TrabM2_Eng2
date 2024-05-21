@@ -1,4 +1,4 @@
-package controller;
+package controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import repositories.interfaces.IAnswerRepo;
+import repositories.interfaces.IUserRepo;
+import services.interfaces.IAnswer;
+import web.dto.AnswerForm;
 
-import webapp.dto.AnswerForm;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import models.User;
+import observers.implementations.UserObserver;
 
 @Controller
 @RequestMapping(value = "/admin/answer")
@@ -19,6 +25,12 @@ public class AnswerController {
 
     @Autowired
     private IAnswerRepo answerRepo;
+
+    @Autowired
+    private IUserRepo userRepo;
+
+    @Autowired
+    private IAnswer answerService;
 
     // Paths
 
@@ -29,6 +41,8 @@ public class AnswerController {
     private static final String UPDATE_PATH = "/update";
 
     private static final String ADD_PATH = "/add";
+
+    private static final String OBSERVER_PATH = "/observe";
 
     // HTTP methods
 
@@ -74,5 +88,16 @@ public class AnswerController {
         return "redirect:/admin/question"; // modificar esse data-man
     }
 
-    // "redirect:/admin/nfeTenants"
+    @RequestMapping(params = "observe", value = OBSERVER_PATH, method = RequestMethod.POST)
+    public String observe(@RequestParam Integer questionPk, @RequestParam Integer userPk) {
+        User user = new User();
+        user.setUserPk(userPk);
+        user.setName(userRepo.getUser(userPk).getUserName());
+
+        UserObserver observer = new UserObserver(user);
+
+        answerService.attachObserver(observer);
+
+        return "redirect:/admin/question";
+    }
 }

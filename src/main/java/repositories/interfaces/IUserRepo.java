@@ -2,15 +2,13 @@ package repositories.interfaces;
 
 import java.util.List;
 
-import repositories.dto.User;
-import webapp.dto.UserForm;
+import repositories.dto.UserDTO;
+import web.dto.UserForm;
 
 public interface IUserRepo {
-    List<User> getUsersList();
+    List<UserDTO> getUsersList();
 
     UserForm getUser(Integer userPk);
-
-    Boolean getUserLogin(String email, String password, Integer userPk);
 
     void createNewUser(UserForm form);
 

@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
-public class Question {
+public class QuestionDTO {
     @JsonProperty("question_pk")
     private Integer questionPk;
 

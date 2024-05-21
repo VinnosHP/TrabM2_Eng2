@@ -6,15 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Answer {
-    private final int answerPk;
-    private final int questionPk;
-    private final int userAnswerPk;
+    private int answerPk;
+    private int questionPk;
+    private int userPk;
     private String answerText;
-
-    public Answer(int answerPk, int questionPk, int userAnswerPk, String answerText) {
-        this.answerPk = answerPk;
-        this.questionPk = questionPk;
-        this.userAnswerPk = userAnswerPk;
-        this.answerText = answerText;
-    }
 }

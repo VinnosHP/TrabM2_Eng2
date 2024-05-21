@@ -1,4 +1,4 @@
-package controller;
+package controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import repositories.interfaces.IQuestionRepo;
-import webapp.dto.QuestionForm;
+import web.dto.QuestionForm;
 
 @Controller
 @RequestMapping(value = "/admin/questions")
@@ -84,7 +84,7 @@ public class QuestionController {
     private void initList(Model model, QuestionForm params) {
 
         model.addAttribute(PARAMS, params);
-        model.addAttribute("list", questionRepo.getUserQuestions(params));
+        model.addAttribute("list", questionRepo.getAllUsersQuestions(params));
     }
 
     // "redirect:/admin/nfeTenants"

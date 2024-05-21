@@ -1,19 +1,15 @@
-package webapp.dto;
+package repositories.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.ToString;
 
 @Getter
-@Setter
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class AnswerForm {
+@ToString
+public class AnswerDTO {
     @JsonProperty("answer_pk")
     private Integer answerPk;
 
@@ -25,4 +21,5 @@ public class AnswerForm {
 
     @JsonProperty("answer_text")
     private String answerText;
+
 }

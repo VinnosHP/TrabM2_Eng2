@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
-public class User {
+public class UserDTO {
     @JsonProperty("user_pk")
     private Integer userPk;
 
