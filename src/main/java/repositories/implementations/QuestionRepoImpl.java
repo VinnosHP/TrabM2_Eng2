@@ -1,6 +1,7 @@
 package repositories.implementations;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.jooq.DSLContext;
 import org.jooq.Record2;
@@ -10,6 +11,7 @@ import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import jooq.steve.db.tables.records.QuestionRecord;
 import repositories.dto.Question;
 import repositories.interfaces.IQuestionRepo;
 import webapp.dto.QuestionForm;
@@ -44,6 +46,25 @@ public class QuestionRepoImpl implements IQuestionRepo {
                         .userPk(r.value1())
                         .questionText(r.value2())
                         .build());
+    }
+
+    @Override
+    public QuestionForm getQuestion(Integer questionPk) {
+        QuestionRecord questionRecord = ctx.selectFrom(QUESTION)
+                .where(QUESTION.QUESTION_PK.equal(questionPk))
+                .fetchOne();
+
+        if (questionRecord == null) {
+            throw new NoSuchElementException("Question with ID " + questionPk + " not found");
+        }
+
+        QuestionForm questionForm = QuestionForm.builder()
+                .userPk(questionRecord.getUserPk())
+                .questionPk(questionRecord.getQuestionPk())
+                .questionText(questionRecord.getQuestionText())
+                .build();
+
+        return questionForm;
     }
 
     @Override

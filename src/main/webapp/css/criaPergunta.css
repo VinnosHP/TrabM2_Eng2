@@ -44,7 +44,8 @@ body {
 }
 
 .form-container {
-  background-color: rgba(0, 0, 0, 0.7);
+  border: solid black 2px;
+  background-color: #444;
   padding: 50px;
   border-radius: 10px;
   text-align: center;
@@ -63,6 +64,11 @@ body {
   border: none;
   resize: vertical;
   margin-bottom: 20px;
+  background-color: #666;
+}
+
+#textAreaFormulario::placeholder{
+  color: aliceblue;
 }
 
 #buttonEnviaPergunta {
