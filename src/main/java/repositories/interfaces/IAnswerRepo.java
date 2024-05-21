@@ -6,7 +6,11 @@ import repositories.dto.Answer;
 import webapp.dto.AnswerForm;
 
 public interface IAnswerRepo {
-    List<Answer> getUserAnswers(AnswerForm form);
+    List<Answer> getAllUsersAnswers(AnswerForm form);
+
+    List<Answer> getAnswersByUser(Integer userPk);
+
+    List<Answer> getAnswersByQuestion(Integer questionPk);
 
     void insertAnswer(AnswerForm form);
 

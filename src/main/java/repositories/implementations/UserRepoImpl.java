@@ -68,18 +68,6 @@ public class UserRepoImpl implements IUserRepo {
     }
 
     @Override
-    public Boolean getUserLogin(String email, String password, Integer userPk) {
-        UserRecord userRecord = ctx.selectFrom(USER)
-                .where(USER.EMAIL.equal(email), USER.PASSWORD.equal(password), USER.USER_PK.equal(userPk))
-                .fetchOne();
-
-        if (userRecord == null) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public void createNewUser(UserForm form) {
         ctx.transaction(configuration -> {
             try {

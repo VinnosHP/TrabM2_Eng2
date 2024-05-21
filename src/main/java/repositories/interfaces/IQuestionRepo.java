@@ -6,7 +6,9 @@ import repositories.dto.Question;
 import webapp.dto.QuestionForm;
 
 public interface IQuestionRepo {
-    List<Question> getUserQuestions(QuestionForm form);
+    List<Question> getAllUsersQuestions(QuestionForm form);
+
+    List<Question> getQuestionsByUser(Integer userPk);
 
     QuestionForm getQuestion(Integer questionPk);
 

@@ -84,7 +84,7 @@ public class QuestionController {
     private void initList(Model model, QuestionForm params) {
 
         model.addAttribute(PARAMS, params);
-        model.addAttribute("list", questionRepo.getUserQuestions(params));
+        model.addAttribute("list", questionRepo.getAllUsersQuestions(params));
     }
 
     // "redirect:/admin/nfeTenants"

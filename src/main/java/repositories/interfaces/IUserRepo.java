@@ -10,8 +10,6 @@ public interface IUserRepo {
 
     UserForm getUser(Integer userPk);
 
-    Boolean getUserLogin(String email, String password, Integer userPk);
-
     void createNewUser(UserForm form);
 
     void updateUser(UserForm form);

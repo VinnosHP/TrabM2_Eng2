@@ -30,7 +30,7 @@ public class QuestionRepoImpl implements IQuestionRepo {
     }
 
     @Override
-    public List<repositories.dto.Question> getUserQuestions(QuestionForm form) {
+    public List<repositories.dto.Question> getAllUsersQuestions(QuestionForm form) {
         SelectConditionStep<Record2<Integer, String>> query = ctx.select(
                 QUESTION.USER_PK,
                 QUESTION.QUESTION_TEXT)
@@ -40,6 +40,21 @@ public class QuestionRepoImpl implements IQuestionRepo {
         if (!isEmpty(form.getUserPk())) {
             query.and(QUESTION.USER_PK.equal(form.getUserPk()));
         }
+
+        return query.fetch()
+                .map(r -> Question.builder()
+                        .userPk(r.value1())
+                        .questionText(r.value2())
+                        .build());
+    }
+
+    @Override
+    public List<Question> getQuestionsByUser(Integer userPk) {
+        SelectConditionStep<Record2<Integer, String>> query = ctx.select(
+                QUESTION.USER_PK,
+                QUESTION.QUESTION_TEXT)
+                .from(QUESTION)
+                .where(QUESTION.USER_PK.equal(userPk));
 
         return query.fetch()
                 .map(r -> Question.builder()
