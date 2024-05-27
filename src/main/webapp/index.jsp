@@ -8,8 +8,9 @@
     <script src="js/index.js"></script>
   </head>
   <body>
+    <input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
     <div class="page" name="div_principal">
-      <form method="get" class="formLogin" action="servlet">
+      <form method="post" class="formLogin" action="login" onsubmit="return validaLoginCampos()">
         <h1>Login</h1>
         <p>Digite os seus dados de acesso no campo abaixo.</p>
         <div id="divCaixaEmail">
@@ -19,7 +20,7 @@
           <input id="password" name="password" type="password" placeholder="Digite a sua senha" required/>
         </div>
         <div id="divLogin">
-          <button type="submit" onclick="validaLoginCampos()">Entrar</button>
+          <button type="submit">Entrar</button>
         </div>
         <div id="divEsqueciSenha">
           <a href="/">Esqueceu a senha ?</a>
@@ -30,5 +31,11 @@
         </div>
       </form>
     </div>
+    <script type="text/javascript">
+      var status = document.getElementById("status").value;
+      if(status == "failed"){
+        swal("Sorry", "Wrong Email or Password", "error")
+      }
+    </script>
   </body>
 </html>
