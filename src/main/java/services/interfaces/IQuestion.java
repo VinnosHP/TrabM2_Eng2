@@ -15,7 +15,7 @@ public interface IQuestion {
 
     int getAnswersForQuestionCount(Integer questionPk);
 
-    List<QuestionDTO> getAllUsersQuestions(QuestionForm form);
+    List<QuestionDTO> getAllUsersQuestions();
 
     QuestionForm getQuestion(Integer questionPk);
 

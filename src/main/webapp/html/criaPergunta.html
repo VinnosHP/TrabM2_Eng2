@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Criar Pergunta</title>
-    <link rel="stylesheet" href="../css/criaPergunta.css" />
+    <link rel="stylesheet" href="../css/criaPergunta.css"/>
     <script src="../js/criaPergunta.js"></script>
-  </head>
-  <body>
-    <nav class="navbar">
-      <button id="buttonPerfil" onclick="redireciona('html/perfil.html')">Perfil</button>
-      <div class="logo">Nome/logo</div>
-      <button id="buttonListaPerguntas" onclick="redireciona('listaDePerguntas.html')">Lista de Perguntas</button>
-    </nav>
-    <main class="main-content">
-      <div class="form-container">
+</head>
+<body>
+<nav class="navbar">
+    <button id="buttonPerfil" onclick="redireciona('perfil')">Perfil</button>
+    <div class="logo">Nome/logo</div>
+    <button id="buttonListaPerguntas" onclick="redireciona('perguntas')">Lista de Perguntas</button>
+</nav>
+<main class="main-content">
+    <div class="form-container">
         <h1>Criar pergunta</h1>
-        <form id="formEnviaPergunta" method="get" onsubmit="return validaCriaPergunta()">
-          <textarea id="textAreaFormulario" rows="20" cols="50" placeholder="Escreva a pergunta aqui..."></textarea>
-          <button id="buttonCancelaPergunta" onclick="redireciona('listaDePerguntas.html')">Cancelar</button>
-          <button type="submit" id="buttonEnviaPergunta">Enviar</button>
+        <form id="formEnviaPergunta" method="post" action="/novaPergunta" onsubmit="return validaCriaPergunta()">
+            <textarea id="textAreaFormulario" name="questionText" rows="20" cols="50" placeholder="Escreva a pergunta aqui..."></textarea>
+            <button id="buttonCancelaPergunta" type="button" onclick="redireciona('perguntas')">Cancelar</button>
+            <button type="submit" id="buttonEnviaPergunta">Enviar</button>
         </form>
-      </div>
-    </main>
-  </body>
+    </div>
+</main>
+</body>
 </html>

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.jooq.DSLContext;
+import org.jooq.Record3;
 import org.jooq.Record2;
 import org.jooq.SelectConditionStep;
 import org.jooq.exception.DataAccessException;
@@ -17,7 +18,6 @@ import repositories.interfaces.IQuestionRepo;
 import web.dto.QuestionForm;
 
 import static jooq.steve.db.tables.Question.QUESTION;
-import static org.springframework.util.ObjectUtils.isEmpty;
 
 @Repository
 public class QuestionRepoImpl implements IQuestionRepo {
@@ -30,21 +30,19 @@ public class QuestionRepoImpl implements IQuestionRepo {
     }
 
     @Override
-    public List<repositories.dto.QuestionDTO> getAllUsersQuestions(QuestionForm form) {
-        SelectConditionStep<Record2<Integer, String>> query = ctx.select(
+    public List<repositories.dto.QuestionDTO> getAllUsersQuestions() {
+        SelectConditionStep<Record3<Integer, Integer, String>> query = ctx.select(
+                QUESTION.QUESTION_PK,
                 QUESTION.USER_PK,
                 QUESTION.QUESTION_TEXT)
                 .from(QUESTION)
                 .where();
 
-        if (!isEmpty(form.getUserPk())) {
-            query.and(QUESTION.USER_PK.equal(form.getUserPk()));
-        }
-
         return query.fetch()
                 .map(r -> QuestionDTO.builder()
-                        .userPk(r.value1())
-                        .questionText(r.value2())
+                        .questionPk(r.value1())
+                        .userPk(r.value2())
+                        .questionText(r.value3())
                         .build());
     }
 

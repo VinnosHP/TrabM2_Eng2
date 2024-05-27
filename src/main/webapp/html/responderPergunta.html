@@ -10,12 +10,12 @@
   <body>
     <div class="page" id="div_principal">
       <nav class="topnav" id="topNav">
-        <button id="buttonPerfil" onclick="redireciona('perfil.html')">Perfil</button>
-        <button id="buttonListaPerguntas" onclick="redireciona('listaDePerguntas.html')">Lista de Perguntas</button>
+        <button id="buttonPerfil" onclick="redireciona('perfil')">Perfil</button>
+        <button id="buttonListaPerguntas" onclick="redireciona('perguntas')">Lista de Perguntas</button>
         <div id="nomeLogo">Nome/Logo</div>
         <button
           id="buttonCriaPergunta"
-          onclick="redireciona('criaPergunta.html')"
+          onclick="redireciona('novaPergunta')"
         >
           Criar pergunta
         </button>
@@ -45,7 +45,7 @@
           <button type="submit" id="buttonEnviaResposta" onclick="">
             Enviar resposta
           </button>
-          <button id="buttonCancel" onclick="redireciona('pergunta.html')">Cancelar</button>
+          <button id="buttonCancel" onclick="redireciona('perguntas')">Cancelar</button>
         </form>
       </div>
     </div>

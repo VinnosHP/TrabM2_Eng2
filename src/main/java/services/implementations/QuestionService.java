@@ -49,8 +49,8 @@ public class QuestionService implements IQuestion {
     }
 
     @Override
-    public List<QuestionDTO> getAllUsersQuestions(QuestionForm form) {
-        return questionRepo.getAllUsersQuestions(form);
+    public List<QuestionDTO> getAllUsersQuestions() {
+        return questionRepo.getAllUsersQuestions();
     }
 
     @Override

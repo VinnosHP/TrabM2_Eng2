@@ -58,6 +58,10 @@ public class Facade {
 
     // Methods related to questions
 
+    public List<QuestionDTO> getAllUsersQuestions() {
+        return questionService.getAllUsersQuestions();
+    }
+
     public int getUserQuestionCount(Integer userPk) {
         return questionService.getUserQuestionCount(userPk);
     }

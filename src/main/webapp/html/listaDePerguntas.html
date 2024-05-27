@@ -11,9 +11,9 @@
         <div class="page" id="div_principal">
             <nav class="topnav" id="topNav">
                 <input type="text" id="pesquisaPergunta" placeholder="Pesquisar pergunta"/>
-                <button id="buttonPerfil" onclick="redireciona('perfil.html')">Perfil</button>
+                <button id="buttonPerfil" onclick="redireciona('perfil')">Perfil</button>
                 <div id="nomeLogo">Nome/Logo</div>
-                <button id="buttonCriaPergunta" onclick="redireciona('criaPergunta.html')">Criar pergunta</button>
+                <button id="buttonCriaPergunta" onclick="redireciona('novaPergunta')">Criar pergunta</button>
             </nav>
             <div class="blocoPerguntas" id="div_BlocoPerguntas">
                 <h1>Perguntas</h1>
@@ -21,15 +21,15 @@
                     <tbody>
                         <tr>
                             <td><img src="/Fotos_Perfil/omw.jpg" alt="Foto de perfil"></td>
-                            <td>Usuario</td><td><p>corpo da pergunta</p></td><td><button onclick="respondePergunta()">Responder</button></td>
+                            <td>Usuario</td><td><p>corpo da pergunta</p></td><td><button onclick="redireciona('responder')">Responder</button></td>
                         </tr>
                         <tr>
                             <td><img src="/Fotos_Perfil/omw.jpg" alt="Foto de perfil"></td>
-                            <td>Usuario2</td><td><p>corpo da pergunta</p></td><td><button onclick="respondePergunta()">Responder</button></td>
+                            <td>Usuario2</td><td><p>corpo da pergunta</p></td><td><button onclick="redireciona('responder')">Responder</button></td>
                         </tr>
                         <tr>
                             <td><img src="/Fotos_Perfil/omw.jpg" alt="Foto de perfil"></td>
-                            <td>Usuario3</td><td><p>corpo da pergunta</p></td><td><button onclick="respondePergunta()">Responder</button></td>
+                            <td>Usuario3</td><td><p>corpo da pergunta</p></td><td><button onclick="redireciona('responder')">Responder</button></td>
                         </tr>
                     </tbody>
                 </table>

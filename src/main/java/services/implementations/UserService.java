@@ -25,7 +25,7 @@ public class UserService implements IUser {
         List<UserDTO> userList = userRepo.getUsersList();
 
         for (UserDTO user : userList) {
-            if (user.getUserEmail().equals(email) && user.getUserPassword().equals(password)) {
+            if (user.getUserEmail().trim().equals(email) && user.getUserPassword().trim().equals(password)) {
                 return user.getUserPk();
             }
         }
