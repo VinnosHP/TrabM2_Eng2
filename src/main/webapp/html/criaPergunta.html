@@ -9,17 +9,16 @@
   </head>
   <body>
     <nav class="navbar">
-      <button class="nav-button" onclick="redireciona('perfil.html')">Perfil</button>
+      <button id="buttonPerfil" onclick="redireciona('perfil.html')">Perfil</button>
       <div class="logo">Nome/logo</div>
-      <button class="nav-button" onclick="redireciona('criaPergunta.html')">
-        Criar pergunta
-      </button>
+      <button id="buttonListaPerguntas" onclick="redireciona('listaDePerguntas.html')">Lista de Perguntas</button>
     </nav>
     <main class="main-content">
       <div class="form-container">
         <h1>Criar pergunta</h1>
         <form id="formEnviaPergunta" method="get" onsubmit="return validaCriaPergunta()">
           <textarea id="textAreaFormulario" rows="20" cols="50" placeholder="Escreva a pergunta aqui..."></textarea>
+          <button id="buttonCancelaPergunta" onclick="redireciona('listaDePerguntas.html')">Cancelar</button>
           <button type="submit" id="buttonEnviaPergunta">Enviar</button>
         </form>
       </div>

@@ -28,6 +28,39 @@ body {
   background-color: #666;
 }
 
+#buttonPerfil {
+  border: none;
+  border-radius: 4px;
+  background-color: #212121;
+  color: white;
+  padding: 11px;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#buttonCriaPergunta {
+  border: none;
+  border-radius: 4px;
+  background-color: #212121;
+  color: white;
+  padding: 11px;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#buttonListaPerguntas {
+  border: none;
+  border-radius: 4px;
+  background-color: #212121;
+  color: white;
+  padding: 11px;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .logo {
   color: aliceblue;
   font-size: 1.5em;
@@ -72,7 +105,17 @@ body {
 }
 
 #buttonEnviaPergunta {
-  background-color: #555;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#buttonCancelaPergunta {
+  background-color: #6a1515;
   color: white;
   border: none;
   padding: 10px 20px;

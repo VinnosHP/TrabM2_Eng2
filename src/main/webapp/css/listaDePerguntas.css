@@ -52,6 +52,17 @@ body {
     background-color: #666;
   }
 
+  #buttonPerfil{
+    border: none;
+    border-radius: 4px;
+    background-color: #212121;
+    color: white;
+    padding: 11px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+  }
+
   #buttonCriaPergunta{
     border: none;
     border-radius: 4px;
