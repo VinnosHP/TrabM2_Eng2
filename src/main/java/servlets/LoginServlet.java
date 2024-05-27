@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,25 +23,34 @@ public class LoginServlet extends HttpServlet{
         String password = req.getParameter("password");
 
         HttpSession session = req.getSession();
-        RequestDispatcher dispatcher = null;
+        //RequestDispatcher dispatcher = null;
+        Connection con = null;
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/teste_trab_eng2", "root", "Vinnoshp15!");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/teste_trab_eng2", "root", "Vinnoshp15!");
             PreparedStatement pst = con.prepareStatement("select * from usuario where email=? and senha=?");
             pst.setString(1, email);
             pst.setString(2, password);
 
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
+
                 session.setAttribute("nome", rs.getString("nome"));
-                dispatcher = req.getRequestDispatcher("perfil.html");
+                req.getRequestDispatcher("html/perfil.html").forward(req, resp);
             }else{
                 req.setAttribute("status", "failed");
-                dispatcher = req.getRequestDispatcher("index.jsp");
+                req.getRequestDispatcher("index.jsp").forward(req, resp);
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
     }
 

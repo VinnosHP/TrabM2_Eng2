@@ -10,11 +10,8 @@
   <body>
     <div class="page" id="div_principal">
       <nav class="topnav" id="topNav">
-        <input
-          type="text"
-          id="pesquisaPergunta"
-          placeholder="Pesquisar pergunta"
-        />
+        <button id="buttonPerfil" onclick="redireciona('perfil.html')">Perfil</button>
+        <button id="buttonListaPerguntas" onclick="redireciona('listaDePerguntas.html')">Lista de Perguntas</button>
         <div id="nomeLogo">Nome/Logo</div>
         <button
           id="buttonCriaPergunta"
@@ -22,7 +19,6 @@
         >
           Criar pergunta
         </button>
-        <button id="buttonConfiguracoes">Config</button>
       </nav>
       <div class="blocoPergunta" id="div_BlocoPergunta">
         <h1>Pergunta</h1>
