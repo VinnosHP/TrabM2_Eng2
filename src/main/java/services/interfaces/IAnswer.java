@@ -13,6 +13,8 @@ public interface IAnswer {
 
     List<AnswerDTO> getAllUsersAnswers(AnswerForm form);
 
+    Integer getAnswerPkFromAnswerText(String answerText);
+
     List<AnswerDTO> getAnswersByQuestion(Integer questionPk);
 
     public void insertAnswer(AnswerForm form);

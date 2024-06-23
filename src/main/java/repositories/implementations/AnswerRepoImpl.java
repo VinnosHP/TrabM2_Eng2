@@ -1,9 +1,11 @@
 package repositories.implementations;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.jooq.DSLContext;
-import org.jooq.Record3;
+import org.jooq.Record1;
+import org.jooq.Record4;
 import org.jooq.SelectConditionStep;
 import org.jooq.exception.DataAccessException;
 import org.jooq.impl.DSL;
@@ -29,8 +31,9 @@ public class AnswerRepoImpl implements IAnswerRepo {
 
     @Override
     public List<repositories.dto.AnswerDTO> getAllUsersAnswers(AnswerForm form) {
-        SelectConditionStep<Record3<Integer, Integer, String>> query = ctx.select(
+        SelectConditionStep<Record4<Integer, Integer, Integer, String>> query = ctx.select(
                 ANSWER.USER_PK,
+                ANSWER.ANSWER_PK,
                 ANSWER.QUESTION_PK,
                 ANSWER.ANSWER_TEXT)
                 .from(ANSWER)
@@ -47,16 +50,18 @@ public class AnswerRepoImpl implements IAnswerRepo {
         return query.fetch()
                 .map(r -> AnswerDTO.builder()
                         .userPk(r.value1())
-                        .questionPk(r.value2())
-                        .answerText(r.value3())
+                        .answerPk(r.value2())
+                        .questionPk(r.value3())
+                        .answerText(r.value4())
                         .build());
     }
 
     @Override
     public List<AnswerDTO> getAnswersByUser(Integer userPk) {
-        SelectConditionStep<Record3<Integer, Integer, String>> query = ctx.select(
+        SelectConditionStep<Record4<Integer, Integer, Integer, String>> query = ctx.select(
                 ANSWER.USER_PK,
                 ANSWER.QUESTION_PK,
+                ANSWER.ANSWER_PK,
                 ANSWER.ANSWER_TEXT)
                 .from(ANSWER)
                 .where(ANSWER.USER_PK.equal(userPk));
@@ -65,14 +70,30 @@ public class AnswerRepoImpl implements IAnswerRepo {
                 .map(r -> AnswerDTO.builder()
                         .userPk(r.value1())
                         .questionPk(r.value2())
-                        .answerText(r.value3())
+                        .answerPk(r.value3())
+                        .answerText(r.value4())
                         .build());
     }
 
     @Override
+    public Integer getAnswerPkFromAnswerText(String answerText) {
+        Record1<Integer> answerPk = ctx.select(ANSWER.ANSWER_PK)
+                .from(ANSWER)
+                .where(ANSWER.ANSWER_TEXT.equal(answerText))
+                .fetchOne();
+
+        if (answerPk == null) {
+            throw new NoSuchElementException("Answer with answerText" + answerText + " not found");
+        }
+
+        return answerPk.value1();
+    }
+
+    @Override
     public List<AnswerDTO> getAnswersByQuestion(Integer questionPk) {
-        SelectConditionStep<Record3<Integer, Integer, String>> query = ctx.select(
+        SelectConditionStep<Record4<Integer, Integer, Integer, String>> query = ctx.select(
                 ANSWER.USER_PK,
+                ANSWER.ANSWER_PK,
                 ANSWER.QUESTION_PK,
                 ANSWER.ANSWER_TEXT)
                 .from(ANSWER)
@@ -81,8 +102,9 @@ public class AnswerRepoImpl implements IAnswerRepo {
         return query.fetch()
                 .map(r -> AnswerDTO.builder()
                         .userPk(r.value1())
-                        .questionPk(r.value2())
-                        .answerText(r.value3())
+                        .answerPk(r.value2())
+                        .questionPk(r.value3())
+                        .answerText(r.value4())
                         .build());
     }
 

@@ -34,8 +34,8 @@ public class QuestionController {
     public String createNewQuestion(Model model, @ModelAttribute QuestionForm form,
             RedirectAttributes redirectAttributes) {
         try {
-            form.setUserPk(1);
-            facade.insertQuestion(form); // tem que pegar o userPk pelo email
+            form.setUserPk(facade.getUserPkFromUserEmail(null)); // tem que pegar o userPk pelo email, pegar pelo front
+            facade.insertQuestion(form);
             return "redirect:/perguntas";
         } catch (Exception e) {
             model.addAttribute("error", "Falha ao inserir a pergunta");

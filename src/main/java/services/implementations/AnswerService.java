@@ -43,6 +43,11 @@ public class AnswerService implements IAnswer {
     }
 
     @Override
+    public Integer getAnswerPkFromAnswerText(String answerText) {
+        return answerRepo.getAnswerPkFromAnswerText(answerText);
+    }
+
+    @Override
     public List<AnswerDTO> getAnswersByQuestion(Integer questionPk) {
         return answerRepo.getAnswersByQuestion(questionPk);
     }

@@ -52,6 +52,10 @@ public class Facade {
         return userService.getUsersList();
     }
 
+    public Integer getUserPkFromUserEmail(String userEmail) {
+        return userService.getUserPkByEmail(userEmail);
+    }
+
     public UserForm getUser(Integer userPk) {
         return userService.getUser(userPk);
     }
@@ -69,6 +73,10 @@ public class Facade {
     public List<QuestionDTO> getUserQuestions(Integer userPk) {
         return questionService.getUserQuestions(userPk);
     }
+
+    // public Integer getQuestionPkFromQuestionText() {
+    // return questionService.getQuestionPkFromQuestionText();
+    // }
 
     public void insertQuestion(QuestionForm form) {
         questionService.insertQuestion(form);

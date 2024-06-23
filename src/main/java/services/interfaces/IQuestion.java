@@ -17,6 +17,8 @@ public interface IQuestion {
 
     List<QuestionDTO> getAllUsersQuestions();
 
+    // Integer getQuestionPkFromQuestionText(String questionText);
+
     QuestionForm getQuestion(Integer questionPk);
 
     void insertQuestion(QuestionForm form);

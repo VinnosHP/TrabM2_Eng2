@@ -9,6 +9,7 @@ import repositories.dto.AnswerDTO;
 import repositories.dto.QuestionDTO;
 import repositories.interfaces.IAnswerRepo;
 import repositories.interfaces.IQuestionRepo;
+import repositories.interfaces.IUserRepo;
 import services.interfaces.IQuestion;
 import web.dto.QuestionForm;
 
@@ -16,12 +17,15 @@ import web.dto.QuestionForm;
 public class QuestionService implements IQuestion {
     private final IQuestionRepo questionRepo;
 
+    private final IUserRepo userRepo;
+
     private final IAnswerRepo answerRepo;
 
     @Autowired
-    public QuestionService(IQuestionRepo questionRepo, IAnswerRepo answerRepo) {
+    public QuestionService(IQuestionRepo questionRepo, IAnswerRepo answerRepo, IUserRepo userRepo) {
         this.questionRepo = questionRepo;
         this.answerRepo = answerRepo;
+        this.userRepo = userRepo;
     }
 
     @Override
@@ -52,6 +56,20 @@ public class QuestionService implements IQuestion {
     public List<QuestionDTO> getAllUsersQuestions() {
         return questionRepo.getAllUsersQuestions();
     }
+
+    // @Override
+    // public Integer getQuestionPkFromQuestionText(String userEmail, String
+    // questionText) {
+    // Integer userPk = userRepo.getUserPkFromEmail(userEmail);
+
+    // List<QuestionDTO> questionList = questionRepo.getQuestionsByUser(userPk);
+
+    // for (QuestionDTO question : questionList){
+
+    // }
+
+    // return questionRepo.getQuestionPkFromQuestionText(questionText);
+    // } // ver pra dps
 
     @Override
     public QuestionForm getQuestion(Integer questionPk) {

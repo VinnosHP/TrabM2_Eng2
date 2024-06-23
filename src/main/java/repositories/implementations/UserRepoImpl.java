@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.jooq.DSLContext;
+import org.jooq.Record1;
 import org.jooq.Record5;
 import org.jooq.SelectConditionStep;
 import org.jooq.exception.DataAccessException;
@@ -63,10 +64,25 @@ public class UserRepoImpl implements IUserRepo {
                 .userPk(userRecord.getUserPk())
                 .pictureId(userRecord.getPictureId())
                 .userName(userRecord.getName())
+                .userEmail(userRecord.getEmail())
                 .userPassword(userRecord.getPassword())
                 .build();
 
         return userForm;
+    }
+
+    @Override
+    public Integer getUserPkFromEmail(String userEmail) {
+        Record1<Integer> userPk = ctx.select(USER.USER_PK)
+                .from(USER)
+                .where(USER.EMAIL.equal(userEmail))
+                .fetchOne();
+
+        if (userPk == null) {
+            throw new NoSuchElementException("User with email" + userEmail + " not found");
+        }
+
+        return userPk.value1();
     }
 
     @Override

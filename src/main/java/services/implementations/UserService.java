@@ -46,6 +46,13 @@ public class UserService implements IUser {
     }
 
     @Override
+    public Integer getUserPkByEmail(String userEmail) {
+        Integer userPk = userRepo.getUserPkFromEmail(userEmail);
+
+        return userPk;
+    }
+
+    @Override
     public UserForm getUser(Integer userPk) {
         UserForm getUser = userRepo.getUser(userPk);
 

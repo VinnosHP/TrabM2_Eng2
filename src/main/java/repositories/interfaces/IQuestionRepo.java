@@ -12,6 +12,8 @@ public interface IQuestionRepo {
 
     QuestionForm getQuestion(Integer questionPk);
 
+    Integer getQuestionPkFromQuestionText(String questionText);
+
     void insertQuestion(QuestionForm form);
 
     void updateQuestion(QuestionForm form);
