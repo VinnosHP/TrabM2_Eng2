@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.jooq.DSLContext;
-import org.jooq.Record4;
+import org.jooq.Record1;
+import org.jooq.Record5;
 import org.jooq.SelectConditionStep;
 import org.jooq.exception.DataAccessException;
 import jooq.steve.db.tables.records.UserRecord;
@@ -30,7 +31,8 @@ public class UserRepoImpl implements IUserRepo {
 
     @Override
     public List<UserDTO> getUsersList() {
-        SelectConditionStep<Record4<Integer, String, String, String>> query = ctx.select(
+        SelectConditionStep<Record5<Integer, Integer, String, String, String>> query = ctx.select(
+                USER.USER_PK,
                 USER.PICTURE_ID,
                 USER.NAME,
                 USER.EMAIL,
@@ -40,10 +42,11 @@ public class UserRepoImpl implements IUserRepo {
 
         return query.fetch()
                 .map(r -> UserDTO.builder()
-                        .pictureId(r.value1())
-                        .userName(r.value2())
-                        .userEmail(r.value3())
-                        .userPassword(r.value4())
+                        .userPk(r.value1())
+                        .pictureId(r.value2())
+                        .userName(r.value3())
+                        .userEmail(r.value4())
+                        .userPassword(r.value5())
                         .build());
     }
 
@@ -61,10 +64,25 @@ public class UserRepoImpl implements IUserRepo {
                 .userPk(userRecord.getUserPk())
                 .pictureId(userRecord.getPictureId())
                 .userName(userRecord.getName())
+                .userEmail(userRecord.getEmail())
                 .userPassword(userRecord.getPassword())
                 .build();
 
         return userForm;
+    }
+
+    @Override
+    public Integer getUserPkFromEmail(String userEmail) {
+        Record1<Integer> userPk = ctx.select(USER.USER_PK)
+                .from(USER)
+                .where(USER.EMAIL.equal(userEmail))
+                .fetchOne();
+
+        if (userPk == null) {
+            throw new NoSuchElementException("User with email" + userEmail + " not found");
+        }
+
+        return userPk.value1();
     }
 
     @Override
@@ -78,7 +96,7 @@ public class UserRepoImpl implements IUserRepo {
                         .set(USER.PASSWORD, form.getUserPassword())
                         .execute();
             } catch (DataAccessException e) {
-                throw new Exception("Failed to create new user", e);
+                throw new DataAccessException("Failed to create new user", e);
             }
         });
     }

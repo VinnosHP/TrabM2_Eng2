@@ -3,10 +3,13 @@ package observers.implementations;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import models.Answer;
 import observers.interfaces.IObserver;
 import observers.interfaces.ISubject;
 
+@Component
 public class Subject implements ISubject {
     private List<IObserver> observers = new ArrayList<>();
 

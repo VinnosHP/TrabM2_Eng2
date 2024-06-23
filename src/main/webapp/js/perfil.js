@@ -1,5 +1,5 @@
 function redireciona(link){
-    window.location.replace(link);
+  window.location.href = link;
 }
 
 function mostraTabela(tabelaId) {
@@ -17,3 +17,4 @@ function mostraTabela(tabelaId) {
   function escondeTabela(tabelaId) {
     document.getElementById(tabelaId).style.display = "none";
   }
+

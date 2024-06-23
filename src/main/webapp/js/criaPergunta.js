@@ -1,5 +1,5 @@
 function redireciona(link){
-    window.location.replace(link);
+    window.location.href = link;
 }
 
 function validaCriaPergunta(){

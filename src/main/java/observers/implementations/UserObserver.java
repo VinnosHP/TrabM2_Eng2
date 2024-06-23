@@ -1,9 +1,12 @@
 package observers.implementations;
 
+import org.springframework.stereotype.Component;
+
 import models.Answer;
 import models.User;
 import observers.interfaces.IObserver;
 
+@Component
 public class UserObserver implements IObserver {
     private final User user;
 

@@ -12,6 +12,8 @@ public interface IUser {
 
     List<UserDTO> getUsersList();
 
+    Integer getUserPkByEmail(String userEmail);
+
     UserForm getUser(Integer userPk);
 
     void createNewUser(UserForm form);

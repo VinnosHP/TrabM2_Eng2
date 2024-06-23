@@ -3,89 +3,43 @@ package controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import repositories.interfaces.IQuestionRepo;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import services.Facade;
 import web.dto.QuestionForm;
 
 @Controller
-@RequestMapping(value = "/admin/questions")
 public class QuestionController {
 
     @Autowired
-    private IQuestionRepo questionRepo;
+    private Facade facade;
 
-    private static final String PARAMS = "params";
-
-    // Paths
-
-    private static final String DETAILS_PATH = "/details/{pk}";
-
-    private static final String DELETE_PATH = "/delete/{pk}";
-
-    private static final String UPDATE_PATH = "/update";
-
-    private static final String ADD_PATH = "/add";
-
-    // HTTP methods
-
-    @RequestMapping(method = RequestMethod.GET)
-    public String getOverView(Model model) {
-        initList(model, new QuestionForm());
-
-        return "data-man/questions";
+    @GetMapping("/perguntas")
+    public String showQuestionPage(Model model) {
+        model.addAttribute("perguntas", facade.getAllUsersQuestions());
+        return "html/listaDePerguntas.html";
     }
 
-    @RequestMapping(value = DETAILS_PATH, method = RequestMethod.GET)
-    public String getDetails(@PathVariable("questionPk") Integer questionPk, Model model) {
-        QuestionForm questionDetails = questionRepo.getQuestion(questionPk);
-
-        model.addAttribute("questionDetails", questionDetails);
-
-        return "data-man/questionDetail"; // modificar esse data-man
-
+    @GetMapping("/novaPergunta")
+    public String showCreateQuestionForm(Model model) {
+        model.addAttribute("questionForm", new QuestionForm());
+        return "html/criaPergunta.html";
     }
 
-    @RequestMapping(value = DELETE_PATH, method = RequestMethod.POST)
-    public String delete(@PathVariable("questionPk") Integer questionPk, Model model) {
-
-        questionRepo.deleteQuestion(questionPk);
-
-        return "redirect:/admin/questions"; // modificar esse data-man
-    }
-
-    @RequestMapping(params = "update", value = UPDATE_PATH, method = RequestMethod.POST)
-    public String update(@ModelAttribute("questionForm") QuestionForm questionForm, BindingResult result, Model model) {
-
-        if (result.hasErrors()) {
-            return "data-man/questionDetail";
+    @PostMapping("/novaPergunta")
+    public String createNewQuestion(Model model, @ModelAttribute QuestionForm form,
+            RedirectAttributes redirectAttributes) {
+        try {
+            form.setUserPk(facade.getUserPkFromUserEmail(null)); // tem que pegar o userPk pelo email, pegar pelo front
+            facade.insertQuestion(form);
+            return "redirect:/perguntas";
+        } catch (Exception e) {
+            model.addAttribute("error", "Falha ao inserir a pergunta");
+            return "redirect:/novaPergunta";
         }
-
-        return "redirect:/admin/questions"; // modificar esse data-man
-
     }
-
-    @RequestMapping(params = "add", value = ADD_PATH, method = RequestMethod.POST)
-    public String add(@ModelAttribute("questionForm") QuestionForm questionForm, BindingResult result, Model model) {
-
-        if (result.hasErrors()) {
-            return "data-man/questionAdd";
-        }
-
-        questionRepo.insertQuestion(questionForm);
-
-        return "redirect:/admin/questions"; // modificar esse data-man
-    }
-
-    private void initList(Model model, QuestionForm params) {
-
-        model.addAttribute(PARAMS, params);
-        model.addAttribute("list", questionRepo.getAllUsersQuestions(params));
-    }
-
-    // "redirect:/admin/nfeTenants"
 }

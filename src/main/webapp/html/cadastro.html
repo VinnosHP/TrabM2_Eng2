@@ -10,18 +10,19 @@
   <body>
     <section id="page">
       <div id="form">
-        <form method="get" class="formCadastro">
+        <form method="post" class="formCadastro" action="/html/cadastro">
           <h3>Cadastro</h3>
           <div>
-            <input id="name" type="text" placeholder="Nome e Sobrenome" autofocus="true"/>
+            <input id="name" name = "userName" type="text" placeholder="Nome e Sobrenome" autofocus="true"/>
           </div>
           <div>
-            <input id="email" type="email" placeholder="Email" autofocus="true"/>
+            <input id="email" name = "userEmail" type="email" placeholder="Email" autofocus="true"/>
           </div>
           <div>
-            <input id="password" type="password" placeholder="Senha" autofocus="true"/>
+            <input id="password" name = "userPassword" type="password" placeholder="Senha" autofocus="true"/>
           </div>
           <button type="submit" onclick="validaCadastroCampos()">Cadastrar</button>
+          <input type="button" value="Voltar" onclick="window.location.href='/login'" />
         </form>
       </div>
       <div id="logo">

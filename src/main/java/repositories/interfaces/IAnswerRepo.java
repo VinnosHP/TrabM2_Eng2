@@ -10,6 +10,8 @@ public interface IAnswerRepo {
 
     List<AnswerDTO> getAnswersByUser(Integer userPk);
 
+    Integer getAnswerPkFromAnswerText(String answerText);
+
     List<AnswerDTO> getAnswersByQuestion(Integer questionPk);
 
     void insertAnswer(AnswerForm form);

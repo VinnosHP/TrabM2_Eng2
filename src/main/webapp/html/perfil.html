@@ -4,19 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil</title>
-    <link rel="stylesheet" href="../css/perfil.css" />
-    <script src="../js/perfil.js"></script>
+    <link rel="stylesheet" href="css/perfil.css" />
+    <script src="js/perfil.js"></script>
   </head>
   <body>
     <div class="page" id="div_principal">
       <nav class="topnav" id="topNav">
         <input type="text" id="pesquisaPergunta" placeholder="Pesquisar pergunta"/>
+        <button id="buttonListaPerguntas" onclick="redireciona('perguntas')">Lista de Perguntas</button>
         <div id="nomeLogo">Nome/Logo</div>
-        <button id="buttonCriaPergunta" onclick="redireciona('criaPergunta.html')">Criar pergunta</button>
+        <button id="buttonCriaPergunta" onclick="redireciona('novaPergunta')">Criar pergunta</button>
         <button id="buttonConfiguracoes">Config</button>
       </nav>
       <div class="blocoPerfil" id="div_BlocoPerfil">
-        <img id="img_Perfil" src="../Fotos_Perfil/patoGamer.jpg" width="110" height="100" alt="Foto de Perfil"/>
+        <img id="img_Perfil" src="Fotos_Perfil/patoGamer.jpg" width="110" height="100" alt="Foto de Perfil"/>
         <p id="nomeUsuario">Kassandra Pereira</p>
         <button id="buttonRespostas" onclick="mostraTabela('divTabelaRespostas')">
           Respostas

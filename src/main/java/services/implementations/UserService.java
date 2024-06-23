@@ -25,7 +25,7 @@ public class UserService implements IUser {
         List<UserDTO> userList = userRepo.getUsersList();
 
         for (UserDTO user : userList) {
-            if (user.getUserEmail().equals(email) && user.getUserPassword().equals(password)) {
+            if (user.getUserEmail().trim().equals(email) && user.getUserPassword().trim().equals(password)) {
                 return user.getUserPk();
             }
         }
@@ -43,6 +43,13 @@ public class UserService implements IUser {
     @Override
     public List<UserDTO> getUsersList() {
         return userRepo.getUsersList();
+    }
+
+    @Override
+    public Integer getUserPkByEmail(String userEmail) {
+        Integer userPk = userRepo.getUserPkFromEmail(userEmail);
+
+        return userPk;
     }
 
     @Override
